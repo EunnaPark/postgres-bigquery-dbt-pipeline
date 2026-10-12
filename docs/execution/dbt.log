@@ -1,0 +1,2848 @@
+==================== 2026-10-12T18:40:33.041339Z | 01a1316a-9d0f-74e0-a79d-64d157c6449c ====================
+18:40:33.041687 [info ]: dbt 2.0.8
+18:40:33.042170 [info ]: Started loading project
+18:40:33.043835 [info ]: Loading ~/.dbt/profiles.yml
+18:40:33.045055 [info ]: Finished loading project [  0.00s]
+18:40:33.045275 [info ]: Started debugging
+18:40:33.045379 [info ]: Debugging profile: dev
+18:40:33.045452 [info ]: Debugging dbt version: 2.0.8
+18:40:33.045486 [info ]: Debugging platform: linux x86_64 (unix)
+18:40:33.045549 [info ]: Debugging adapter type: bigquery (remote)
+18:40:33.048352 [info ]: Debugging dependencies:
+  git: OK
+18:40:33.048566 [info ]: Debugging connection:
+  "database": "bigquery-access-gcp",
+  "schema": "dbt_dev",
+  "method": "oauth",
+  "location": "US",
+  "dataproc_batch": null
+18:40:33.049737 [debug]: BigQuery driver resolved: bigquery 0.21.0.dev+dbt0.21.19
+18:40:33.095158 [debug]: borrow_tlocal_connection() took 45.494691ms
+18:40:33.099690 [debug]: create_debug_span(...).entered() took 64.21µs
+18:40:34.556098 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.456294434s
+18:40:34.556157 [debug]: reader.schema() took 960ns
+18:40:34.855833 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.756079344s
+18:40:34.856032 [debug]: concat_batches + normalize_result_column_names took 120.232µs
+18:40:34.856102 [debug]: record_current_span_status_from_attrs took 36.217µs
+18:40:34.856146 [debug]: Query executed on node unknown:
+select 1 as id
+18:40:34.856231 [debug]: drop(query_span_guard) (span exit/export) took 99.33µs
+18:40:34.856426 [debug]: adapter.execute() (full call, incl. adbc_execute_with_options) took 1.761196398s
+18:40:34.856502 [info ]: Debugging connection test: OK (1.8s)
+18:40:34.856840 [info ]: Debugged All checks passed!
+18:40:34.857075 [info ]: Finished debugging [  1.81s]
+18:40:34.928489 [info ]: 
+==================== Execution Summary =====================
+Finished 'debug' successfully for target 'dev' [1.9s]
+==================== 2026-10-12T18:41:00.496296Z | 01a1316b-084e-7232-aa2a-3b1af042861b ====================
+18:41:00.496580 [info ]: dbt 2.0.8
+18:41:00.497085 [info ]: Started loading project
+18:41:00.498308 [info ]: Loading ~/.dbt/profiles.yml
+18:41:00.501042 [info ]:    Started resolving packages from packages.yml
+18:41:00.644539 [info ]:   Finished [  0.14s] resolving packages from packages.yml (1 items)
+18:41:00.644801 [info ]: Auto installing dependencies while running `dbt build`. To ensure dependencies are cached, run `dbt deps` to initialize a valid package-lock.yml.
+18:41:00.644949 [info ]: Installing packages
+18:41:00.645505 [info ]: Installing dbt-labs/dbt_utils
+18:41:00.822674 [info ]:  Installed dbt-labs/dbt_utils: 1.4.1
+18:41:00.822866 [info ]:  Installed 1 package
+18:41:00.824439 [debug]:    Started loading packages
+18:41:00.828256 [debug]:     Loaded [  0.00s] packages
+18:41:00.829868 [info ]: Finished loading project [  0.33s]
+18:41:00.830702 [info ]: Started parsing
+18:41:00.904727 [debug]: Finished parsing models/marts/customers.yml [  0.00s]
+18:41:00.905169 [debug]: Finished parsing models/marts/order_items.yml [  0.00s]
+18:41:00.905797 [debug]: Finished parsing models/marts/orders.yml [  0.00s]
+18:41:00.906170 [debug]: Finished parsing models/staging/__sources.yml [  0.00s]
+18:41:00.906351 [debug]: Finished parsing models/staging/stg_customers.yml [  0.00s]
+18:41:00.906649 [debug]: Finished parsing models/staging/stg_locations.yml [  0.00s]
+18:41:00.906840 [debug]: Finished parsing models/staging/stg_order_items.yml [  0.00s]
+18:41:00.907035 [debug]: Finished parsing models/staging/stg_orders.yml [  0.00s]
+18:41:00.907242 [debug]: Finished parsing models/staging/stg_products.yml [  0.00s]
+18:41:00.907410 [debug]: Finished parsing models/staging/stg_supplies.yml [  0.00s]
+18:41:00.916553 [debug]: Finished parsing models/connection_check.sql [  0.00s]
+18:41:00.918099 [debug]: Finished parsing models/marts/customers.sql [  0.00s]
+18:41:00.918771 [debug]: Finished parsing models/marts/locations.sql [  0.00s]
+18:41:00.919753 [debug]: Finished parsing models/marts/order_items.sql [  0.00s]
+18:41:00.920920 [debug]: Finished parsing models/marts/orders.sql [  0.00s]
+18:41:00.921605 [debug]: Finished parsing models/marts/products.sql [  0.00s]
+18:41:00.922117 [debug]: Finished parsing models/marts/supplies.sql [  0.00s]
+18:41:00.922760 [debug]: Finished parsing models/staging/stg_customers.sql [  0.00s]
+18:41:00.923486 [debug]: Finished parsing models/staging/stg_locations.sql [  0.00s]
+18:41:00.924496 [debug]: Finished parsing models/staging/stg_order_items.sql [  0.00s]
+18:41:00.925539 [debug]: Finished parsing models/staging/stg_orders.sql [  0.00s]
+18:41:00.926321 [debug]: Finished parsing models/staging/stg_products.sql [  0.00s]
+18:41:00.928017 [debug]: Finished parsing models/staging/stg_supplies.sql [  0.00s]
+18:41:00.947927 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_c_177c20685a18a9071d4a71719e3d9565.sql [  0.00s]
+18:41:00.948761 [debug]: Finished parsing target/generic_tests/not_null_customers_customer_id.sql [  0.00s]
+18:41:00.949498 [debug]: Finished parsing target/generic_tests/unique_customers_customer_id.sql [  0.00s]
+18:41:00.950182 [debug]: Finished parsing target/generic_tests/accepted_values_customers_customer_type__new__returning.sql [  0.00s]
+18:41:00.950906 [debug]: Finished parsing target/generic_tests/relationships_order_items_order_id__order_id__ref_orders_.sql [  0.00s]
+18:41:00.951613 [debug]: Finished parsing target/generic_tests/not_null_order_items_order_item_id.sql [  0.00s]
+18:41:00.952284 [debug]: Finished parsing target/generic_tests/unique_order_items_order_item_id.sql [  0.00s]
+18:41:00.952947 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_o_c0acd0b625f5605c61af04356663a823.sql [  0.00s]
+18:41:00.953656 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_o_bf2cfee53d5bb32a0a918086ae35fff9.sql [  0.00s]
+18:41:00.954389 [debug]: Finished parsing target/generic_tests/relationships_orders_0389c224a99a98c0b58aedb753f052f0.sql [  0.00s]
+18:41:00.955021 [debug]: Finished parsing target/generic_tests/not_null_orders_order_id.sql [  0.00s]
+18:41:00.955664 [debug]: Finished parsing target/generic_tests/unique_orders_order_id.sql [  0.00s]
+18:41:00.956404 [debug]: Finished parsing target/generic_tests/not_null_stg_customers_customer_id.sql [  0.00s]
+18:41:00.957113 [debug]: Finished parsing target/generic_tests/unique_stg_customers_customer_id.sql [  0.00s]
+18:41:00.957781 [debug]: Finished parsing target/generic_tests/not_null_stg_locations_location_id.sql [  0.00s]
+18:41:00.958456 [debug]: Finished parsing target/generic_tests/unique_stg_locations_location_id.sql [  0.00s]
+18:41:00.959083 [debug]: Finished parsing target/generic_tests/not_null_stg_order_items_order_id.sql [  0.00s]
+18:41:00.959749 [debug]: Finished parsing target/generic_tests/relationships_stg_order_items_b3d7cdbd08ebfad01e3226c01c10bba0.sql [  0.00s]
+18:41:00.960454 [debug]: Finished parsing target/generic_tests/not_null_stg_order_items_order_item_id.sql [  0.00s]
+18:41:00.961060 [debug]: Finished parsing target/generic_tests/unique_stg_order_items_order_item_id.sql [  0.00s]
+18:41:00.961768 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_s_fc9f3efa92425b23fb62ee5a96c17e3f.sql [  0.00s]
+18:41:00.962505 [debug]: Finished parsing target/generic_tests/not_null_stg_orders_order_id.sql [  0.00s]
+18:41:00.963092 [debug]: Finished parsing target/generic_tests/unique_stg_orders_order_id.sql [  0.00s]
+18:41:00.963733 [debug]: Finished parsing target/generic_tests/not_null_stg_products_product_id.sql [  0.00s]
+18:41:00.964592 [debug]: Finished parsing target/generic_tests/unique_stg_products_product_id.sql [  0.00s]
+18:41:00.965348 [debug]: Finished parsing target/generic_tests/not_null_stg_supplies_supply_uuid.sql [  0.00s]
+18:41:00.965941 [debug]: Finished parsing target/generic_tests/unique_stg_supplies_supply_uuid.sql [  0.00s]
+18:41:01.170746 [info ]: Finished parsing [  0.34s]
+18:41:01.201324 [info ]: Started scheduling
+18:41:01.201889 [info ]: Finished scheduling [  0.00s]
+18:41:01.260014 [info ]: Started building task graph
+18:41:01.260335 [info ]: Finished building task graph [  0.00s]
+18:41:01.263348 [debug]: BigQuery driver resolved: bigquery 0.21.0.dev+dbt0.21.19
+18:41:01.548519 [info ]: Started rendering (1 nodes)
+18:41:01.548673 [info ]: Started model dbt_dev.connection_check
+18:41:01.548708 [debug]: Started rendering model dbt_dev.connection_check
+18:41:01.550152 [debug]: Compiled SQL for node model.jaffle_shop_1.connection_check at target/compiled/jaffle_shop_1/models/connection_check.sql
+18:41:01.550412 [debug]: Finished rendering [  0.00s] model dbt_dev.connection_check [success]
+18:41:01.550552 [info ]: Finished rendering [  0.00s] (1 nodes, 0 skipped, 0 errors)
+18:41:01.550650 [info ]: Started analyzing (1 nodes)
+18:41:01.550756 [debug]: Started analyzing model dbt_dev.connection_check
+18:41:01.574044 [debug]: Finished analyzing [  0.02s] model dbt_dev.connection_check [success]
+18:41:01.574233 [info ]: Finished analyzing [  0.02s] (1 nodes, 0 skipped, 0 errors)
+18:41:01.574339 [info ]: Started running (1 nodes)
+18:41:01.574402 [info ]: Started running model dbt_dev.connection_check
+18:41:01.935205 [debug]: Writing runtime sql for node "model.jaffle_shop_1.connection_check"
+18:41:01.936469 [debug]: create_debug_span(...).entered() took 36.028µs
+18:41:03.249647 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.313062588s
+18:41:03.249717 [debug]: reader.schema() took 903ns
+18:41:03.254638 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.318113826s
+18:41:03.254718 [debug]: concat_batches + normalize_result_column_names took 9.518µs
+18:41:03.254760 [debug]: record_current_span_status_from_attrs took 33.619µs
+18:41:03.254812 [debug]: Query executed on node model.jaffle_shop_1.connection_check:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.jaffle_shop_1.connection_check", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+
+  create or replace view `bigquery-access-gcp`.`dbt_dev`.`connection_check`
+  OPTIONS()
+  as 
+
+select 1 as connection_ok;
+
+
+18:41:03.254882 [debug]: drop(query_span_guard) (span exit/export) took 103.821µs
+18:41:03.257295 [info ]: Finished running [  1.68s] model dbt_dev.connection_check [success]
+18:41:03.257465 [info ]: Finished running [  1.68s] (1 nodes, 0 skipped, 0 errors)
+18:41:03.257543 [info ]:  Succeeded model dbt_dev.connection_check (view) [1 of 1 in 1.71s]
+18:41:03.474979 [info ]: 
+==================== Execution Summary =====================
+Finished 'build' successfully for target 'dev' [3.0s]
+Processed: 1 model
+Summary: 1 total | 1 success
+==================== 2026-10-12T19:08:19.925439Z | 01a13184-0c53-7eb0-ace1-b622e7dbc8a5 ====================
+19:08:19.925721 [info ]: dbt 2.0.8
+19:08:19.926337 [info ]: Started loading project
+19:08:19.927658 [info ]: Loading ~/.dbt/profiles.yml
+19:08:19.930566 [info ]: Loading packages.yml
+19:08:19.931966 [debug]:    Started loading packages
+19:08:19.935492 [debug]:     Loaded [  0.00s] packages
+19:08:19.937054 [info ]: Finished loading project [  0.01s]
+19:08:19.937822 [info ]: Started parsing
+19:08:20.013846 [debug]: Finished parsing models/farm_sources.yml [  0.00s]
+19:08:20.014139 [debug]: Finished parsing models/marts/customers.yml [  0.00s]
+19:08:20.014517 [debug]: Finished parsing models/marts/order_items.yml [  0.00s]
+19:08:20.014931 [debug]: Finished parsing models/marts/orders.yml [  0.00s]
+19:08:20.015183 [debug]: Finished parsing models/staging/__sources.yml [  0.00s]
+19:08:20.015325 [debug]: Finished parsing models/staging/stg_customers.yml [  0.00s]
+19:08:20.015550 [debug]: Finished parsing models/staging/stg_locations.yml [  0.00s]
+19:08:20.015685 [debug]: Finished parsing models/staging/stg_order_items.yml [  0.00s]
+19:08:20.015805 [debug]: Finished parsing models/staging/stg_orders.yml [  0.00s]
+19:08:20.015897 [debug]: Finished parsing models/staging/stg_products.yml [  0.00s]
+19:08:20.016004 [debug]: Finished parsing models/staging/stg_supplies.yml [  0.00s]
+19:08:20.024516 [debug]: Finished parsing models/connection_check.sql [  0.00s]
+19:08:20.025525 [debug]: Finished parsing models/marts/customers.sql [  0.00s]
+19:08:20.026051 [debug]: Finished parsing models/marts/locations.sql [  0.00s]
+19:08:20.026901 [debug]: Finished parsing models/marts/order_items.sql [  0.00s]
+19:08:20.027754 [debug]: Finished parsing models/marts/orders.sql [  0.00s]
+19:08:20.028342 [debug]: Finished parsing models/marts/products.sql [  0.00s]
+19:08:20.028772 [debug]: Finished parsing models/marts/supplies.sql [  0.00s]
+19:08:20.029271 [debug]: Finished parsing models/staging/stg_customers.sql [  0.00s]
+19:08:20.029892 [debug]: Finished parsing models/staging/stg_farm_prices.sql [  0.00s]
+19:08:20.030434 [debug]: Finished parsing models/staging/stg_locations.sql [  0.00s]
+19:08:20.030997 [debug]: Finished parsing models/staging/stg_order_items.sql [  0.00s]
+19:08:20.031900 [debug]: Finished parsing models/staging/stg_orders.sql [  0.00s]
+19:08:20.032547 [debug]: Finished parsing models/staging/stg_products.sql [  0.00s]
+19:08:20.033668 [debug]: Finished parsing models/staging/stg_supplies.sql [  0.00s]
+19:08:20.059461 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_c_177c20685a18a9071d4a71719e3d9565.sql [  0.00s]
+19:08:20.060480 [debug]: Finished parsing target/generic_tests/not_null_customers_customer_id.sql [  0.00s]
+19:08:20.061298 [debug]: Finished parsing target/generic_tests/unique_customers_customer_id.sql [  0.00s]
+19:08:20.062112 [debug]: Finished parsing target/generic_tests/accepted_values_customers_customer_type__new__returning.sql [  0.00s]
+19:08:20.062910 [debug]: Finished parsing target/generic_tests/relationships_order_items_order_id__order_id__ref_orders_.sql [  0.00s]
+19:08:20.063814 [debug]: Finished parsing target/generic_tests/not_null_order_items_order_item_id.sql [  0.00s]
+19:08:20.064636 [debug]: Finished parsing target/generic_tests/unique_order_items_order_item_id.sql [  0.00s]
+19:08:20.065540 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_o_c0acd0b625f5605c61af04356663a823.sql [  0.00s]
+19:08:20.066475 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_o_bf2cfee53d5bb32a0a918086ae35fff9.sql [  0.00s]
+19:08:20.067513 [debug]: Finished parsing target/generic_tests/relationships_orders_0389c224a99a98c0b58aedb753f052f0.sql [  0.00s]
+19:08:20.068484 [debug]: Finished parsing target/generic_tests/not_null_orders_order_id.sql [  0.00s]
+19:08:20.069312 [debug]: Finished parsing target/generic_tests/unique_orders_order_id.sql [  0.00s]
+19:08:20.070236 [debug]: Finished parsing target/generic_tests/not_null_stg_customers_customer_id.sql [  0.00s]
+19:08:20.071019 [debug]: Finished parsing target/generic_tests/unique_stg_customers_customer_id.sql [  0.00s]
+19:08:20.071900 [debug]: Finished parsing target/generic_tests/not_null_stg_locations_location_id.sql [  0.00s]
+19:08:20.072804 [debug]: Finished parsing target/generic_tests/unique_stg_locations_location_id.sql [  0.00s]
+19:08:20.073725 [debug]: Finished parsing target/generic_tests/not_null_stg_order_items_order_id.sql [  0.00s]
+19:08:20.074683 [debug]: Finished parsing target/generic_tests/relationships_stg_order_items_b3d7cdbd08ebfad01e3226c01c10bba0.sql [  0.00s]
+19:08:20.075505 [debug]: Finished parsing target/generic_tests/not_null_stg_order_items_order_item_id.sql [  0.00s]
+19:08:20.076267 [debug]: Finished parsing target/generic_tests/unique_stg_order_items_order_item_id.sql [  0.00s]
+19:08:20.077151 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_s_fc9f3efa92425b23fb62ee5a96c17e3f.sql [  0.00s]
+19:08:20.077950 [debug]: Finished parsing target/generic_tests/not_null_stg_orders_order_id.sql [  0.00s]
+19:08:20.078794 [debug]: Finished parsing target/generic_tests/unique_stg_orders_order_id.sql [  0.00s]
+19:08:20.079729 [debug]: Finished parsing target/generic_tests/not_null_stg_products_product_id.sql [  0.00s]
+19:08:20.080637 [debug]: Finished parsing target/generic_tests/unique_stg_products_product_id.sql [  0.00s]
+19:08:20.081455 [debug]: Finished parsing target/generic_tests/not_null_stg_supplies_supply_uuid.sql [  0.00s]
+19:08:20.082373 [debug]: Finished parsing target/generic_tests/unique_stg_supplies_supply_uuid.sql [  0.00s]
+19:08:20.293854 [info ]: Finished parsing [  0.36s]
+19:08:20.328687 [info ]: Started scheduling
+19:08:20.329259 [info ]: Finished scheduling [  0.00s]
+19:08:20.334004 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "bigquery-access-gcp", schema: "FARM_PRODUCT", table: "CANADA_FARM_PRODUCT_PRICES" }) and interval: None
+19:08:20.429230 [info ]: Started building task graph
+19:08:20.429490 [info ]: Finished building task graph [  0.00s]
+19:08:20.432530 [debug]: BigQuery driver resolved: bigquery 0.21.0.dev+dbt0.21.19
+19:08:20.959575 [info ]: Started rendering (1 nodes)
+19:08:20.959815 [info ]: Started model dbt_dev.stg_farm_prices
+19:08:20.959873 [debug]: Started rendering model dbt_dev.stg_farm_prices
+19:08:20.961080 [debug]: Compiled SQL for node model.jaffle_shop_1.stg_farm_prices at target/compiled/jaffle_shop_1/models/staging/stg_farm_prices.sql
+19:08:20.961358 [debug]: Finished rendering [  0.00s] model dbt_dev.stg_farm_prices [success]
+19:08:20.961497 [info ]: Finished rendering [  0.00s] (1 nodes, 0 skipped, 0 errors)
+19:08:20.961618 [info ]: Started analyzing (1 nodes)
+19:08:20.961737 [debug]: Started analyzing model dbt_dev.stg_farm_prices
+19:08:21.247217 [debug]: Schema hydration: registering 1 schemas from db_runner
+19:08:21.247269 [debug]: Schema hydration: parsing FQN string '`bigquery-access-gcp`.`FARM_PRODUCT`.`CANADA_FARM_PRODUCT_PRICES`'
+19:08:21.247366 [debug]: Schema hydration: registering cfqn=bigquery-access-gcp.FARM_PRODUCT.CANADA_FARM_PRODUCT_PRICES (catalog='bigquery-access-gcp', schema='FARM_PRODUCT', table='CANADA_FARM_PRODUCT_PRICES')
+19:08:21.247551 [debug]: Schema hydration: registration succeeded for bigquery-access-gcp.FARM_PRODUCT.CANADA_FARM_PRODUCT_PRICES, exists_check=true
+19:08:21.266974 [debug]: Finished analyzing [  0.31s] model dbt_dev.stg_farm_prices [success]
+19:08:21.267098 [info ]: Finished analyzing [  0.31s] (1 nodes, 0 skipped, 0 errors)
+19:08:21.267156 [info ]: Started running (1 nodes)
+19:08:21.267282 [info ]: Started running model dbt_dev.stg_farm_prices
+19:08:21.815463 [debug]: Writing runtime sql for node "model.jaffle_shop_1.stg_farm_prices"
+19:08:21.816794 [debug]: create_debug_span(...).entered() took 38.6µs
+19:08:23.358902 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.541989324s
+19:08:23.358980 [debug]: reader.schema() took 722ns
+19:08:23.363170 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.54632708s
+19:08:23.363297 [debug]: concat_batches + normalize_result_column_names took 73.129µs
+19:08:23.363336 [debug]: record_current_span_status_from_attrs took 12.046µs
+19:08:23.363375 [debug]: Query executed on node model.jaffle_shop_1.stg_farm_prices:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.jaffle_shop_1.stg_farm_prices", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+
+  create or replace view `bigquery-access-gcp`.`dbt_dev`.`stg_farm_prices`
+  OPTIONS()
+  as 
+
+select
+    REF_DATE as ref_date_raw,
+    safe.parse_date('%Y-%m', trim(REF_DATE)) as price_month,
+    trim(GEO) as geography,
+    trim(PRODUCT) as product,
+    trim(UOM) as unit,
+    trim(SCALAR_FACTOR) as scalar_factor,
+    VALUE as price,
+    nullif(trim(STATUS), '') as status,
+    VECTOR as series_id
+from `bigquery-access-gcp`.`FARM_PRODUCT`.`CANADA_FARM_PRODUCT_PRICES`;
+
+
+19:08:23.363486 [debug]: drop(query_span_guard) (span exit/export) took 121.154µs
+19:08:23.365321 [info ]: Finished running [  2.10s] model dbt_dev.stg_farm_prices [success]
+19:08:23.365458 [info ]: Finished running [  2.10s] (1 nodes, 0 skipped, 0 errors)
+19:08:23.365544 [info ]:  Succeeded model dbt_dev.stg_farm_prices (view) [1 of 1 in 2.40s]
+19:08:23.542766 [info ]: 
+==================== Execution Summary =====================
+Finished 'build' successfully for target 'dev' [3.6s]
+Processed: 1 model
+Summary: 1 total | 1 success
+==================== 2026-10-12T19:13:26.974032Z | 01a13188-bbbb-7953-a23d-45a004661166 ====================
+19:13:26.974400 [info ]: dbt 2.0.8
+19:13:26.974971 [info ]: Started loading project
+19:13:26.976654 [info ]: Loading ~/.dbt/profiles.yml
+19:13:26.980161 [info ]: Loading packages.yml
+19:13:26.981642 [debug]:    Started loading packages
+19:13:26.985862 [debug]:     Loaded [  0.00s] packages
+19:13:26.987545 [info ]: Finished loading project [  0.01s]
+19:13:26.988342 [info ]: Started parsing
+19:13:27.064421 [debug]: Finished parsing models/farm_sources.yml [  0.00s]
+19:13:27.064794 [debug]: Finished parsing models/marts/customers.yml [  0.00s]
+19:13:27.065253 [debug]: Finished parsing models/marts/order_items.yml [  0.00s]
+19:13:27.065741 [debug]: Finished parsing models/marts/orders.yml [  0.00s]
+19:13:27.066040 [debug]: Finished parsing models/staging/__sources.yml [  0.00s]
+19:13:27.066241 [debug]: Finished parsing models/staging/stg_customers.yml [  0.00s]
+19:13:27.066547 [debug]: Finished parsing models/staging/stg_locations.yml [  0.00s]
+19:13:27.066737 [debug]: Finished parsing models/staging/stg_order_items.yml [  0.00s]
+19:13:27.066919 [debug]: Finished parsing models/staging/stg_orders.yml [  0.00s]
+19:13:27.067078 [debug]: Finished parsing models/staging/stg_products.yml [  0.00s]
+19:13:27.067273 [debug]: Finished parsing models/staging/stg_supplies.yml [  0.00s]
+19:13:27.076660 [debug]: Finished parsing models/connection_check.sql [  0.00s]
+19:13:27.078015 [debug]: Finished parsing models/marts/customers.sql [  0.00s]
+19:13:27.078679 [debug]: Finished parsing models/marts/locations.sql [  0.00s]
+19:13:27.079457 [debug]: Finished parsing models/marts/mart_annual_farm_prices.sql [  0.00s]
+19:13:27.080168 [debug]: Finished parsing models/marts/order_items.sql [  0.00s]
+19:13:27.081049 [debug]: Finished parsing models/marts/orders.sql [  0.00s]
+19:13:27.081559 [debug]: Finished parsing models/marts/products.sql [  0.00s]
+19:13:27.082010 [debug]: Finished parsing models/marts/supplies.sql [  0.00s]
+19:13:27.082561 [debug]: Finished parsing models/staging/stg_customers.sql [  0.00s]
+19:13:27.083352 [debug]: Finished parsing models/staging/stg_farm_prices.sql [  0.00s]
+19:13:27.083878 [debug]: Finished parsing models/staging/stg_locations.sql [  0.00s]
+19:13:27.084530 [debug]: Finished parsing models/staging/stg_order_items.sql [  0.00s]
+19:13:27.085650 [debug]: Finished parsing models/staging/stg_orders.sql [  0.00s]
+19:13:27.086388 [debug]: Finished parsing models/staging/stg_products.sql [  0.00s]
+19:13:27.087691 [debug]: Finished parsing models/staging/stg_supplies.sql [  0.00s]
+19:13:27.110375 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_c_177c20685a18a9071d4a71719e3d9565.sql [  0.00s]
+19:13:27.111069 [debug]: Finished parsing target/generic_tests/not_null_customers_customer_id.sql [  0.00s]
+19:13:27.111719 [debug]: Finished parsing target/generic_tests/unique_customers_customer_id.sql [  0.00s]
+19:13:27.112517 [debug]: Finished parsing target/generic_tests/accepted_values_customers_customer_type__new__returning.sql [  0.00s]
+19:13:27.113152 [debug]: Finished parsing target/generic_tests/relationships_order_items_order_id__order_id__ref_orders_.sql [  0.00s]
+19:13:27.113830 [debug]: Finished parsing target/generic_tests/not_null_order_items_order_item_id.sql [  0.00s]
+19:13:27.114487 [debug]: Finished parsing target/generic_tests/unique_order_items_order_item_id.sql [  0.00s]
+19:13:27.115132 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_o_c0acd0b625f5605c61af04356663a823.sql [  0.00s]
+19:13:27.115887 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_o_bf2cfee53d5bb32a0a918086ae35fff9.sql [  0.00s]
+19:13:27.116582 [debug]: Finished parsing target/generic_tests/relationships_orders_0389c224a99a98c0b58aedb753f052f0.sql [  0.00s]
+19:13:27.117304 [debug]: Finished parsing target/generic_tests/not_null_orders_order_id.sql [  0.00s]
+19:13:27.117891 [debug]: Finished parsing target/generic_tests/unique_orders_order_id.sql [  0.00s]
+19:13:27.118589 [debug]: Finished parsing target/generic_tests/not_null_stg_customers_customer_id.sql [  0.00s]
+19:13:27.119364 [debug]: Finished parsing target/generic_tests/unique_stg_customers_customer_id.sql [  0.00s]
+19:13:27.120125 [debug]: Finished parsing target/generic_tests/not_null_stg_locations_location_id.sql [  0.00s]
+19:13:27.120761 [debug]: Finished parsing target/generic_tests/unique_stg_locations_location_id.sql [  0.00s]
+19:13:27.121453 [debug]: Finished parsing target/generic_tests/not_null_stg_order_items_order_id.sql [  0.00s]
+19:13:27.122077 [debug]: Finished parsing target/generic_tests/relationships_stg_order_items_b3d7cdbd08ebfad01e3226c01c10bba0.sql [  0.00s]
+19:13:27.122740 [debug]: Finished parsing target/generic_tests/not_null_stg_order_items_order_item_id.sql [  0.00s]
+19:13:27.123409 [debug]: Finished parsing target/generic_tests/unique_stg_order_items_order_item_id.sql [  0.00s]
+19:13:27.124055 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_s_fc9f3efa92425b23fb62ee5a96c17e3f.sql [  0.00s]
+19:13:27.124758 [debug]: Finished parsing target/generic_tests/not_null_stg_orders_order_id.sql [  0.00s]
+19:13:27.125418 [debug]: Finished parsing target/generic_tests/unique_stg_orders_order_id.sql [  0.00s]
+19:13:27.126033 [debug]: Finished parsing target/generic_tests/not_null_stg_products_product_id.sql [  0.00s]
+19:13:27.126688 [debug]: Finished parsing target/generic_tests/unique_stg_products_product_id.sql [  0.00s]
+19:13:27.127389 [debug]: Finished parsing target/generic_tests/not_null_stg_supplies_supply_uuid.sql [  0.00s]
+19:13:27.127976 [debug]: Finished parsing target/generic_tests/unique_stg_supplies_supply_uuid.sql [  0.00s]
+19:13:27.314503 [info ]: Finished parsing [  0.33s]
+19:13:27.343530 [info ]: Started scheduling
+19:13:27.344032 [info ]: Finished scheduling [  0.00s]
+19:13:27.347932 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "bigquery-access-gcp", schema: "FARM_PRODUCT", table: "CANADA_FARM_PRODUCT_PRICES" }) and interval: None
+19:13:27.399598 [info ]: Started building task graph
+19:13:27.400051 [info ]: Finished building task graph [  0.00s]
+19:13:27.403350 [debug]: BigQuery driver resolved: bigquery 0.21.0.dev+dbt0.21.19
+19:13:28.665572 [info ]: Started rendering (2 nodes)
+19:13:28.665875 [info ]: Started model dbt_dev.stg_farm_prices
+19:13:28.665941 [debug]: Started rendering model dbt_dev.stg_farm_prices
+19:13:28.667262 [debug]: Compiled SQL for node model.jaffle_shop_1.stg_farm_prices at target/compiled/jaffle_shop_1/models/staging/stg_farm_prices.sql
+19:13:28.667599 [debug]: Finished rendering [  0.00s] model dbt_dev.stg_farm_prices [success]
+19:13:28.667772 [info ]: Started analyzing (2 nodes)
+19:13:28.667851 [debug]: Started analyzing model dbt_dev.stg_farm_prices
+19:13:28.708353 [debug]: Finished analyzing [  0.04s] model dbt_dev.stg_farm_prices [success]
+19:13:28.708557 [info ]: Started running (2 nodes)
+19:13:28.708662 [info ]: Started running model dbt_dev.stg_farm_prices
+19:13:28.708723 [info ]: Started model dbt_dev.mart_annual_farm_prices
+19:13:28.708760 [debug]: Started rendering model dbt_dev.mart_annual_farm_prices
+19:13:28.710052 [debug]: Compiled SQL for node model.jaffle_shop_1.mart_annual_farm_prices at target/compiled/jaffle_shop_1/models/marts/mart_annual_farm_prices.sql
+19:13:28.710303 [debug]: Finished rendering [  0.00s] model dbt_dev.mart_annual_farm_prices [success]
+19:13:28.710443 [info ]: Finished rendering [  0.04s] (2 nodes, 0 skipped, 0 errors)
+19:13:28.710570 [debug]: Started analyzing model dbt_dev.mart_annual_farm_prices
+19:13:28.717822 [debug]: Finished analyzing [  0.01s] model dbt_dev.mart_annual_farm_prices [success]
+19:13:28.718066 [info ]: Finished analyzing [  0.05s] (2 nodes, 0 skipped, 0 errors)
+19:13:29.657239 [debug]: Writing runtime sql for node "model.jaffle_shop_1.stg_farm_prices"
+19:13:29.658729 [debug]: create_debug_span(...).entered() took 38.602µs
+19:13:31.662366 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 2.003455086s
+19:13:31.662409 [debug]: reader.schema() took 721ns
+19:13:31.668404 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 2.009549433s
+19:13:31.668590 [debug]: concat_batches + normalize_result_column_names took 97.676µs
+19:13:31.668659 [debug]: record_current_span_status_from_attrs took 25.326µs
+19:13:31.668682 [debug]: Query executed on node model.jaffle_shop_1.stg_farm_prices:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.jaffle_shop_1.stg_farm_prices", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+
+  create or replace view `bigquery-access-gcp`.`dbt_dev`.`stg_farm_prices`
+  OPTIONS()
+  as 
+
+select
+    REF_DATE as ref_date_raw,
+    safe.parse_date('%Y-%m', trim(REF_DATE)) as price_month,
+    trim(GEO) as geography,
+    trim(PRODUCT) as product,
+    trim(UOM) as unit,
+    trim(SCALAR_FACTOR) as scalar_factor,
+    VALUE as price,
+    nullif(trim(STATUS), '') as status,
+    VECTOR as series_id
+from `bigquery-access-gcp`.`FARM_PRODUCT`.`CANADA_FARM_PRODUCT_PRICES`;
+
+
+19:13:31.668766 [debug]: drop(query_span_guard) (span exit/export) took 93.606µs
+19:13:31.671343 [info ]: Finished running [  2.96s] model dbt_dev.stg_farm_prices [success]
+19:13:31.671494 [info ]:  Succeeded model dbt_dev.stg_farm_prices (view) [1 of 2 in 3.00s]
+19:13:31.671655 [info ]: Started running model dbt_dev.mart_annual_farm_prices
+19:13:31.677863 [debug]: Writing runtime sql for node "model.jaffle_shop_1.mart_annual_farm_prices"
+19:13:31.679134 [debug]: create_debug_span(...).entered() took 36.224µs
+19:13:34.294537 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 2.615063818s
+19:13:34.294587 [debug]: reader.schema() took 873ns
+19:13:35.434710 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 3.755523767s
+19:13:35.434824 [debug]: concat_batches + normalize_result_column_names took 27.106µs
+19:13:35.434845 [debug]: record_current_span_status_from_attrs took 7.487µs
+19:13:35.434868 [debug]: Query executed on node model.jaffle_shop_1.mart_annual_farm_prices:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.jaffle_shop_1.mart_annual_farm_prices", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+  
+    
+
+    create or replace table `bigquery-access-gcp`.`dbt_dev`.`mart_annual_farm_prices`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      
+
+select
+    extract(year from price_month) as price_year,
+    geography,
+    product,
+    unit,
+    scalar_factor,
+    count(*) as months_present,
+    count(price) as months_with_price,
+    countif(price is null) as months_missing_price,
+    avg(price) as avg_monthly_price
+from `bigquery-access-gcp`.`dbt_dev`.`stg_farm_prices`
+group by
+    price_year, geography, product, unit, scalar_factor
+    );
+  
+19:13:35.434921 [debug]: drop(query_span_guard) (span exit/export) took 61.281µs
+19:13:35.436784 [info ]: Finished running [  3.77s] model dbt_dev.mart_annual_farm_prices [success]
+19:13:35.436943 [info ]: Finished running [  6.73s] (2 nodes, 0 skipped, 0 errors)
+19:13:35.437019 [info ]:  Succeeded model dbt_dev.mart_annual_farm_prices (table) [2 of 2 in 3.77s]
+19:13:35.617335 [info ]: 
+==================== Execution Summary =====================
+Finished 'build' successfully for target 'dev' [8.6s]
+Processed: 2 models
+Summary: 2 total | 2 success
+==================== 2026-10-12T19:14:33.562751Z | 01a13189-bfd8-71d3-b2c8-35ffe33bb2b3 ====================
+19:14:33.562997 [info ]: dbt 2.0.8
+19:14:33.563525 [info ]: Started loading project
+19:14:33.564802 [info ]: Loading ~/.dbt/profiles.yml
+19:14:33.567569 [info ]: Loading packages.yml
+19:14:33.569106 [debug]:    Started loading packages
+19:14:33.572666 [debug]:     Loaded [  0.00s] packages
+19:14:33.574317 [info ]: Finished loading project [  0.01s]
+19:14:33.574970 [info ]: Started parsing
+19:14:33.649615 [debug]: Finished parsing models/farm_schema.yml [  0.00s]
+19:14:33.649775 [debug]: Finished parsing models/farm_sources.yml [  0.00s]
+19:14:33.650032 [debug]: Finished parsing models/marts/customers.yml [  0.00s]
+19:14:33.650455 [debug]: Finished parsing models/marts/order_items.yml [  0.00s]
+19:14:33.650872 [debug]: Finished parsing models/marts/orders.yml [  0.00s]
+19:14:33.651127 [debug]: Finished parsing models/staging/__sources.yml [  0.00s]
+19:14:33.651304 [debug]: Finished parsing models/staging/stg_customers.yml [  0.00s]
+19:14:33.651550 [debug]: Finished parsing models/staging/stg_locations.yml [  0.00s]
+19:14:33.651690 [debug]: Finished parsing models/staging/stg_order_items.yml [  0.00s]
+19:14:33.651807 [debug]: Finished parsing models/staging/stg_orders.yml [  0.00s]
+19:14:33.651898 [debug]: Finished parsing models/staging/stg_products.yml [  0.00s]
+19:14:33.651991 [debug]: Finished parsing models/staging/stg_supplies.yml [  0.00s]
+19:14:33.660940 [debug]: Finished parsing models/connection_check.sql [  0.00s]
+19:14:33.661924 [debug]: Finished parsing models/marts/customers.sql [  0.00s]
+19:14:33.662506 [debug]: Finished parsing models/marts/locations.sql [  0.00s]
+19:14:33.663118 [debug]: Finished parsing models/marts/mart_annual_farm_prices.sql [  0.00s]
+19:14:33.663837 [debug]: Finished parsing models/marts/order_items.sql [  0.00s]
+19:14:33.664670 [debug]: Finished parsing models/marts/orders.sql [  0.00s]
+19:14:33.665112 [debug]: Finished parsing models/marts/products.sql [  0.00s]
+19:14:33.665573 [debug]: Finished parsing models/marts/supplies.sql [  0.00s]
+19:14:33.666081 [debug]: Finished parsing models/staging/stg_customers.sql [  0.00s]
+19:14:33.666832 [debug]: Finished parsing models/staging/stg_farm_prices.sql [  0.00s]
+19:14:33.667400 [debug]: Finished parsing models/staging/stg_locations.sql [  0.00s]
+19:14:33.667973 [debug]: Finished parsing models/staging/stg_order_items.sql [  0.00s]
+19:14:33.668865 [debug]: Finished parsing models/staging/stg_orders.sql [  0.00s]
+19:14:33.669563 [debug]: Finished parsing models/staging/stg_products.sql [  0.00s]
+19:14:33.670761 [debug]: Finished parsing models/staging/stg_supplies.sql [  0.00s]
+19:14:33.692662 [debug]: Finished parsing tests/assert_farm_annual_counts.sql [  0.00s]
+19:14:33.693126 [debug]: Finished parsing tests/assert_farm_monthly_grain.sql [  0.00s]
+19:14:33.693817 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_c_177c20685a18a9071d4a71719e3d9565.sql [  0.00s]
+19:14:33.694545 [debug]: Finished parsing target/generic_tests/not_null_customers_customer_id.sql [  0.00s]
+19:14:33.695162 [debug]: Finished parsing target/generic_tests/unique_customers_customer_id.sql [  0.00s]
+19:14:33.695857 [debug]: Finished parsing target/generic_tests/accepted_values_customers_customer_type__new__returning.sql [  0.00s]
+19:14:33.696538 [debug]: Finished parsing target/generic_tests/relationships_order_items_order_id__order_id__ref_orders_.sql [  0.00s]
+19:14:33.697180 [debug]: Finished parsing target/generic_tests/not_null_order_items_order_item_id.sql [  0.00s]
+19:14:33.697830 [debug]: Finished parsing target/generic_tests/unique_order_items_order_item_id.sql [  0.00s]
+19:14:33.698742 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_o_c0acd0b625f5605c61af04356663a823.sql [  0.00s]
+19:14:33.699504 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_o_bf2cfee53d5bb32a0a918086ae35fff9.sql [  0.00s]
+19:14:33.700142 [debug]: Finished parsing target/generic_tests/relationships_orders_0389c224a99a98c0b58aedb753f052f0.sql [  0.00s]
+19:14:33.700808 [debug]: Finished parsing target/generic_tests/not_null_orders_order_id.sql [  0.00s]
+19:14:33.701471 [debug]: Finished parsing target/generic_tests/unique_orders_order_id.sql [  0.00s]
+19:14:33.702124 [debug]: Finished parsing target/generic_tests/not_null_stg_customers_customer_id.sql [  0.00s]
+19:14:33.702731 [debug]: Finished parsing target/generic_tests/unique_stg_customers_customer_id.sql [  0.00s]
+19:14:33.703737 [debug]: Finished parsing target/generic_tests/not_null_stg_farm_prices_price_month.sql [  0.00s]
+19:14:33.704504 [debug]: Finished parsing target/generic_tests/not_null_stg_locations_location_id.sql [  0.00s]
+19:14:33.705253 [debug]: Finished parsing target/generic_tests/unique_stg_locations_location_id.sql [  0.00s]
+19:14:33.705875 [debug]: Finished parsing target/generic_tests/not_null_stg_order_items_order_id.sql [  0.00s]
+19:14:33.706576 [debug]: Finished parsing target/generic_tests/relationships_stg_order_items_b3d7cdbd08ebfad01e3226c01c10bba0.sql [  0.00s]
+19:14:33.707324 [debug]: Finished parsing target/generic_tests/not_null_stg_order_items_order_item_id.sql [  0.00s]
+19:14:33.708313 [debug]: Finished parsing target/generic_tests/unique_stg_order_items_order_item_id.sql [  0.00s]
+19:14:33.709552 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_s_fc9f3efa92425b23fb62ee5a96c17e3f.sql [  0.00s]
+19:14:33.710318 [debug]: Finished parsing target/generic_tests/not_null_stg_orders_order_id.sql [  0.00s]
+19:14:33.710926 [debug]: Finished parsing target/generic_tests/unique_stg_orders_order_id.sql [  0.00s]
+19:14:33.711604 [debug]: Finished parsing target/generic_tests/not_null_stg_products_product_id.sql [  0.00s]
+19:14:33.712260 [debug]: Finished parsing target/generic_tests/unique_stg_products_product_id.sql [  0.00s]
+19:14:33.713121 [debug]: Finished parsing target/generic_tests/not_null_stg_supplies_supply_uuid.sql [  0.00s]
+19:14:33.714016 [debug]: Finished parsing target/generic_tests/unique_stg_supplies_supply_uuid.sql [  0.00s]
+19:14:33.905381 [info ]: Finished parsing [  0.33s]
+19:14:33.935097 [info ]: Started scheduling
+19:14:33.935538 [info ]: Finished scheduling [  0.00s]
+19:14:33.939883 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "bigquery-access-gcp", schema: "FARM_PRODUCT", table: "CANADA_FARM_PRODUCT_PRICES" }) and interval: None
+19:14:33.991511 [info ]: Started building task graph
+19:14:33.991839 [info ]: Finished building task graph [  0.00s]
+19:14:33.994860 [debug]: BigQuery driver resolved: bigquery 0.21.0.dev+dbt0.21.19
+19:14:34.258669 [info ]: Started rendering (5 nodes)
+19:14:34.258774 [info ]: Started model dbt_dev.stg_farm_prices
+19:14:34.258790 [debug]: Started rendering model dbt_dev.stg_farm_prices
+19:14:34.259831 [debug]: Compiled SQL for node model.jaffle_shop_1.stg_farm_prices at target/compiled/jaffle_shop_1/models/staging/stg_farm_prices.sql
+19:14:34.260044 [debug]: Finished rendering [  0.00s] model dbt_dev.stg_farm_prices [success]
+19:14:34.260213 [info ]: Started analyzing (5 nodes)
+19:14:34.260289 [debug]: Started analyzing model dbt_dev.stg_farm_prices
+19:14:34.297216 [debug]: Finished analyzing [  0.04s] model dbt_dev.stg_farm_prices [success]
+19:14:34.297412 [info ]: Started running (5 nodes)
+19:14:34.297481 [info ]: Started running model dbt_dev.stg_farm_prices
+19:14:34.297547 [info ]: Started model dbt_dev.mart_annual_farm_prices
+19:14:34.297570 [debug]: Started rendering model dbt_dev.mart_annual_farm_prices
+19:14:34.298899 [debug]: Compiled SQL for node model.jaffle_shop_1.mart_annual_farm_prices at target/compiled/jaffle_shop_1/models/marts/mart_annual_farm_prices.sql
+19:14:34.299239 [debug]: Finished rendering [  0.00s] model dbt_dev.mart_annual_farm_prices [success]
+19:14:34.299449 [debug]: Started analyzing model dbt_dev.mart_annual_farm_prices
+19:14:34.306103 [debug]: Finished analyzing [  0.01s] model dbt_dev.mart_annual_farm_prices [success]
+19:14:35.155157 [debug]: Writing runtime sql for node "model.jaffle_shop_1.stg_farm_prices"
+19:14:35.156637 [debug]: create_debug_span(...).entered() took 43.542µs
+19:14:36.648015 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.491232066s
+19:14:36.648073 [debug]: reader.schema() took 750ns
+19:14:36.653353 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.496635283s
+19:14:36.653537 [debug]: concat_batches + normalize_result_column_names took 99.288µs
+19:14:36.653578 [debug]: record_current_span_status_from_attrs took 11.731µs
+19:14:36.653607 [debug]: Query executed on node model.jaffle_shop_1.stg_farm_prices:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.jaffle_shop_1.stg_farm_prices", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+
+  create or replace view `bigquery-access-gcp`.`dbt_dev`.`stg_farm_prices`
+  OPTIONS()
+  as 
+
+select
+    REF_DATE as ref_date_raw,
+    safe.parse_date('%Y-%m', trim(REF_DATE)) as price_month,
+    trim(GEO) as geography,
+    trim(PRODUCT) as product,
+    trim(UOM) as unit,
+    trim(SCALAR_FACTOR) as scalar_factor,
+    VALUE as price,
+    nullif(trim(STATUS), '') as status,
+    VECTOR as series_id
+from `bigquery-access-gcp`.`FARM_PRODUCT`.`CANADA_FARM_PRODUCT_PRICES`;
+
+
+19:14:36.653653 [debug]: drop(query_span_guard) (span exit/export) took 58.802µs
+19:14:36.656699 [info ]: Finished running [  2.36s] model dbt_dev.stg_farm_prices [success]
+19:14:36.656780 [info ]:  Succeeded model dbt_dev.stg_farm_prices (view) [1 of 5 in 2.40s]
+19:14:36.656917 [info ]: Started test dbt_dev_dbt_test__audit.not_null_stg_farm_prices_price_month
+19:14:36.656932 [debug]: Started rendering test dbt_dev_dbt_test__audit.not_null_stg_farm_prices_price_month
+19:14:36.657003 [info ]: Started test dbt_dev_dbt_test__audit.assert_farm_monthly_grain
+19:14:36.657020 [debug]: Started rendering test dbt_dev_dbt_test__audit.assert_farm_monthly_grain
+19:14:36.658613 [debug]: Compiled SQL for node test.jaffle_shop_1.assert_farm_monthly_grain at target/compiled/jaffle_shop_1/tests/assert_farm_monthly_grain.sql
+19:14:36.658821 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.assert_farm_monthly_grain [success]
+19:14:36.659024 [debug]: Started analyzing test dbt_dev_dbt_test__audit.assert_farm_monthly_grain
+19:14:36.659359 [debug]: Compiled SQL for node test.jaffle_shop_1.not_null_stg_farm_prices_price_month.d095f6b60e at target/compiled/jaffle_shop_1/target/generic_tests/not_null_stg_farm_prices_price_month.sql
+19:14:36.659508 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_farm_prices_price_month [success]
+19:14:36.659620 [debug]: Started analyzing test dbt_dev_dbt_test__audit.not_null_stg_farm_prices_price_month
+19:14:36.660075 [debug]: Finished analyzing [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_farm_prices_price_month [success]
+19:14:36.660155 [info ]: Started running test dbt_dev_dbt_test__audit.not_null_stg_farm_prices_price_month
+19:14:36.660352 [debug]: Finished analyzing [  0.00s] test dbt_dev_dbt_test__audit.assert_farm_monthly_grain [success]
+19:14:36.660476 [info ]: Started running test dbt_dev_dbt_test__audit.assert_farm_monthly_grain
+19:14:36.663267 [debug]: Writing runtime sql for node "test.jaffle_shop_1.not_null_stg_farm_prices_price_month.d095f6b60e"
+19:14:36.663516 [debug]: Writing runtime sql for node "test.jaffle_shop_1.assert_farm_monthly_grain"
+19:14:36.664843 [debug]: create_debug_span(...).entered() took 20.382µs
+19:14:36.664857 [debug]: create_debug_span(...).entered() took 39.201µs
+19:14:38.177054 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.512079058s
+19:14:38.177102 [debug]: reader.schema() took 838ns
+19:14:38.356961 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.691987884s
+19:14:38.357008 [debug]: reader.schema() took 1.058µs
+19:14:38.461860 [debug]: batch-consume loop (for res in reader) took 284.726462ms
+19:14:38.464314 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.799390854s
+19:14:38.464406 [debug]: concat_batches + normalize_result_column_names took 22.389µs
+19:14:38.464432 [debug]: record_current_span_status_from_attrs took 10.071µs
+19:14:38.464578 [debug]: Query executed on node test.jaffle_shop_1.assert_farm_monthly_grain:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.assert_farm_monthly_grain", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  select
+    price_month, geography, product, unit, scalar_factor
+from `bigquery-access-gcp`.`dbt_dev`.`stg_farm_prices`
+group by price_month, geography, product, unit, scalar_factor
+having count(*) > 1
+  
+  
+      
+    ) dbt_internal_test
+19:14:38.464635 [debug]: drop(query_span_guard) (span exit/export) took 187.91µs
+19:14:38.465229 [info ]: Finished running [  1.80s] test dbt_dev_dbt_test__audit.assert_farm_monthly_grain [pass]
+19:14:38.465442 [info ]:     Passed test  assert_farm_monthly_grain [4 of 5 in 1.81s]
+19:14:38.652066 [debug]: batch-consume loop (for res in reader) took 295.025481ms
+19:14:38.654497 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.989591239s
+19:14:38.654541 [debug]: concat_batches + normalize_result_column_names took 10.011µs
+19:14:38.654554 [debug]: record_current_span_status_from_attrs took 5.5µs
+19:14:38.654565 [debug]: Query executed on node test.jaffle_shop_1.not_null_stg_farm_prices_price_month.d095f6b60e:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.not_null_stg_farm_prices_price_month.d095f6b60e", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select price_month
+from `bigquery-access-gcp`.`dbt_dev`.`stg_farm_prices`
+where price_month is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+19:14:38.654635 [debug]: drop(query_span_guard) (span exit/export) took 75.252µs
+19:14:38.655272 [info ]: Finished running [  2.00s] test dbt_dev_dbt_test__audit.not_null_stg_farm_prices_price_month [pass]
+19:14:38.655367 [info ]:     Passed test  not_null_stg_farm_prices_price_month [3 of 5 in 2.00s]
+19:14:38.655530 [info ]: Started running model dbt_dev.mart_annual_farm_prices
+19:14:38.982884 [debug]: Writing runtime sql for node "model.jaffle_shop_1.mart_annual_farm_prices"
+19:14:38.984058 [debug]: create_debug_span(...).entered() took 23.656µs
+19:14:41.655629 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 2.67143052s
+19:14:41.655680 [debug]: reader.schema() took 796ns
+19:14:43.175316 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 4.191166347s
+19:14:43.175430 [debug]: concat_batches + normalize_result_column_names took 49.465µs
+19:14:43.175461 [debug]: record_current_span_status_from_attrs took 12.377µs
+19:14:43.175519 [debug]: Query executed on node model.jaffle_shop_1.mart_annual_farm_prices:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.jaffle_shop_1.mart_annual_farm_prices", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+  
+    
+
+    create or replace table `bigquery-access-gcp`.`dbt_dev`.`mart_annual_farm_prices`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      
+
+select
+    extract(year from price_month) as price_year,
+    geography,
+    product,
+    unit,
+    scalar_factor,
+    count(*) as months_present,
+    count(price) as months_with_price,
+    countif(price is null) as months_missing_price,
+    avg(price) as avg_monthly_price
+from `bigquery-access-gcp`.`dbt_dev`.`stg_farm_prices`
+group by
+    price_year, geography, product, unit, scalar_factor
+    );
+  
+19:14:43.175580 [debug]: drop(query_span_guard) (span exit/export) took 96.568µs
+19:14:43.178018 [info ]: Finished running [  4.52s] model dbt_dev.mart_annual_farm_prices [success]
+19:14:43.178206 [info ]:  Succeeded model dbt_dev.mart_annual_farm_prices (table) [2 of 5 in 4.53s]
+19:14:43.178402 [info ]: Started test dbt_dev_dbt_test__audit.assert_farm_annual_counts
+19:14:43.178439 [debug]: Started rendering test dbt_dev_dbt_test__audit.assert_farm_annual_counts
+19:14:43.179410 [debug]: Compiled SQL for node test.jaffle_shop_1.assert_farm_annual_counts at target/compiled/jaffle_shop_1/tests/assert_farm_annual_counts.sql
+19:14:43.179599 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.assert_farm_annual_counts [success]
+19:14:43.179668 [info ]: Finished rendering [  8.92s] (5 nodes, 0 skipped, 0 errors)
+19:14:43.179873 [debug]: Started analyzing test dbt_dev_dbt_test__audit.assert_farm_annual_counts
+19:14:43.185135 [debug]: Finished analyzing [  0.01s] test dbt_dev_dbt_test__audit.assert_farm_annual_counts [success]
+19:14:43.185290 [info ]: Finished analyzing [  8.93s] (5 nodes, 0 skipped, 0 errors)
+19:14:43.185458 [info ]: Started running test dbt_dev_dbt_test__audit.assert_farm_annual_counts
+19:14:43.188045 [debug]: Writing runtime sql for node "test.jaffle_shop_1.assert_farm_annual_counts"
+19:14:43.189040 [debug]: create_debug_span(...).entered() took 20.11µs
+19:14:44.945663 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.756312235s
+19:14:44.945731 [debug]: reader.schema() took 866ns
+19:14:46.146807 [debug]: batch-consume loop (for res in reader) took 1.201022588s
+19:14:46.148834 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 2.959743984s
+19:14:46.148909 [debug]: concat_batches + normalize_result_column_names took 12.966µs
+19:14:46.148951 [debug]: record_current_span_status_from_attrs took 11.153µs
+19:14:46.148998 [debug]: Query executed on node test.jaffle_shop_1.assert_farm_annual_counts:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.assert_farm_annual_counts", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  select *
+from `bigquery-access-gcp`.`dbt_dev`.`mart_annual_farm_prices`
+where months_present != months_with_price + months_missing_price
+   or months_present > 12
+   or (months_with_price = 0 and avg_monthly_price is not null)
+   or (months_with_price > 0 and avg_monthly_price is null)
+  
+  
+      
+    ) dbt_internal_test
+19:14:46.149092 [debug]: drop(query_span_guard) (span exit/export) took 97.237µs
+19:14:46.150001 [info ]: Finished running [  2.96s] test dbt_dev_dbt_test__audit.assert_farm_annual_counts [pass]
+19:14:46.150141 [info ]: Finished running [ 11.85s] (5 nodes, 0 skipped, 0 errors)
+19:14:46.150247 [info ]:     Passed test  assert_farm_annual_counts [5 of 5 in 2.97s]
+19:14:46.326729 [info ]: 
+==================== Execution Summary =====================
+Finished 'build' successfully for target 'dev' [12.8s]
+Processed: 2 models | 3 tests
+Summary: 5 total | 5 success
+==================== 2026-10-12T19:22:24.393389Z | 01a13190-ef07-7b71-bf26-151fb4614db5 ====================
+19:22:24.393626 [info ]: dbt 2.0.8
+19:22:24.394091 [info ]: Started loading project
+19:22:24.395384 [info ]: Loading ~/.dbt/profiles.yml
+19:22:24.398077 [info ]: Loading packages.yml
+19:22:24.399760 [debug]:    Started loading packages
+19:22:24.403302 [debug]:     Loaded [  0.00s] packages
+19:22:24.404805 [info ]: Finished loading project [  0.01s]
+19:22:24.405557 [info ]: Started parsing
+19:22:24.479058 [debug]: Finished parsing models/farm_schema.yml [  0.00s]
+19:22:24.479295 [debug]: Finished parsing models/farm_sources.yml [  0.00s]
+19:22:24.479558 [debug]: Finished parsing models/marts/customers.yml [  0.00s]
+19:22:24.479894 [debug]: Finished parsing models/marts/order_items.yml [  0.00s]
+19:22:24.480365 [debug]: Finished parsing models/marts/orders.yml [  0.00s]
+19:22:24.480615 [debug]: Finished parsing models/staging/__sources.yml [  0.00s]
+19:22:24.480719 [debug]: Finished parsing models/staging/stg_customers.yml [  0.00s]
+19:22:24.480952 [debug]: Finished parsing models/staging/stg_locations.yml [  0.00s]
+19:22:24.481086 [debug]: Finished parsing models/staging/stg_order_items.yml [  0.00s]
+19:22:24.481217 [debug]: Finished parsing models/staging/stg_orders.yml [  0.00s]
+19:22:24.481367 [debug]: Finished parsing models/staging/stg_products.yml [  0.00s]
+19:22:24.481472 [debug]: Finished parsing models/staging/stg_supplies.yml [  0.00s]
+19:22:24.490093 [debug]: Finished parsing models/connection_check.sql [  0.00s]
+19:22:24.491269 [debug]: Finished parsing models/marts/customers.sql [  0.00s]
+19:22:24.491786 [debug]: Finished parsing models/marts/locations.sql [  0.00s]
+19:22:24.492486 [debug]: Finished parsing models/marts/mart_annual_farm_prices.sql [  0.00s]
+19:22:24.493154 [debug]: Finished parsing models/marts/order_items.sql [  0.00s]
+19:22:24.493985 [debug]: Finished parsing models/marts/orders.sql [  0.00s]
+19:22:24.494497 [debug]: Finished parsing models/marts/products.sql [  0.00s]
+19:22:24.494936 [debug]: Finished parsing models/marts/supplies.sql [  0.00s]
+19:22:24.495493 [debug]: Finished parsing models/staging/stg_customers.sql [  0.00s]
+19:22:24.496272 [debug]: Finished parsing models/staging/stg_farm_prices.sql [  0.00s]
+19:22:24.496802 [debug]: Finished parsing models/staging/stg_locations.sql [  0.00s]
+19:22:24.497431 [debug]: Finished parsing models/staging/stg_order_items.sql [  0.00s]
+19:22:24.498355 [debug]: Finished parsing models/staging/stg_orders.sql [  0.00s]
+19:22:24.498993 [debug]: Finished parsing models/staging/stg_products.sql [  0.00s]
+19:22:24.500234 [debug]: Finished parsing models/staging/stg_supplies.sql [  0.00s]
+19:22:24.521171 [debug]: Finished parsing tests/assert_farm_annual_counts.sql [  0.00s]
+19:22:24.521654 [debug]: Finished parsing tests/assert_farm_monthly_grain.sql [  0.00s]
+19:22:24.522399 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_c_177c20685a18a9071d4a71719e3d9565.sql [  0.00s]
+19:22:24.523044 [debug]: Finished parsing target/generic_tests/not_null_customers_customer_id.sql [  0.00s]
+19:22:24.523674 [debug]: Finished parsing target/generic_tests/unique_customers_customer_id.sql [  0.00s]
+19:22:24.524405 [debug]: Finished parsing target/generic_tests/accepted_values_customers_customer_type__new__returning.sql [  0.00s]
+19:22:24.525497 [debug]: Finished parsing target/generic_tests/relationships_order_items_order_id__order_id__ref_orders_.sql [  0.00s]
+19:22:24.526447 [debug]: Finished parsing target/generic_tests/not_null_order_items_order_item_id.sql [  0.00s]
+19:22:24.527294 [debug]: Finished parsing target/generic_tests/unique_order_items_order_item_id.sql [  0.00s]
+19:22:24.528175 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_o_c0acd0b625f5605c61af04356663a823.sql [  0.00s]
+19:22:24.529114 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_o_bf2cfee53d5bb32a0a918086ae35fff9.sql [  0.00s]
+19:22:24.530027 [debug]: Finished parsing target/generic_tests/relationships_orders_0389c224a99a98c0b58aedb753f052f0.sql [  0.00s]
+19:22:24.530876 [debug]: Finished parsing target/generic_tests/not_null_orders_order_id.sql [  0.00s]
+19:22:24.531632 [debug]: Finished parsing target/generic_tests/unique_orders_order_id.sql [  0.00s]
+19:22:24.532452 [debug]: Finished parsing target/generic_tests/not_null_stg_customers_customer_id.sql [  0.00s]
+19:22:24.533251 [debug]: Finished parsing target/generic_tests/unique_stg_customers_customer_id.sql [  0.00s]
+19:22:24.534034 [debug]: Finished parsing target/generic_tests/not_null_stg_farm_prices_price_month.sql [  0.00s]
+19:22:24.534915 [debug]: Finished parsing target/generic_tests/not_null_stg_locations_location_id.sql [  0.00s]
+19:22:24.535751 [debug]: Finished parsing target/generic_tests/unique_stg_locations_location_id.sql [  0.00s]
+19:22:24.536722 [debug]: Finished parsing target/generic_tests/not_null_stg_order_items_order_id.sql [  0.00s]
+19:22:24.537685 [debug]: Finished parsing target/generic_tests/relationships_stg_order_items_b3d7cdbd08ebfad01e3226c01c10bba0.sql [  0.00s]
+19:22:24.538735 [debug]: Finished parsing target/generic_tests/not_null_stg_order_items_order_item_id.sql [  0.00s]
+19:22:24.539567 [debug]: Finished parsing target/generic_tests/unique_stg_order_items_order_item_id.sql [  0.00s]
+19:22:24.540483 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_s_fc9f3efa92425b23fb62ee5a96c17e3f.sql [  0.00s]
+19:22:24.541346 [debug]: Finished parsing target/generic_tests/not_null_stg_orders_order_id.sql [  0.00s]
+19:22:24.542318 [debug]: Finished parsing target/generic_tests/unique_stg_orders_order_id.sql [  0.00s]
+19:22:24.543224 [debug]: Finished parsing target/generic_tests/not_null_stg_products_product_id.sql [  0.00s]
+19:22:24.543982 [debug]: Finished parsing target/generic_tests/unique_stg_products_product_id.sql [  0.00s]
+19:22:24.544848 [debug]: Finished parsing target/generic_tests/not_null_stg_supplies_supply_uuid.sql [  0.00s]
+19:22:24.545576 [debug]: Finished parsing target/generic_tests/unique_stg_supplies_supply_uuid.sql [  0.00s]
+19:22:24.737685 [info ]: Finished parsing [  0.33s]
+19:22:24.765595 [info ]: Started scheduling
+19:22:24.766108 [info ]: Finished scheduling [  0.00s]
+19:22:24.770825 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "bigquery-access-gcp", schema: "FARM_PRODUCT", table: "CANADA_FARM_PRODUCT_PRICES" }) and interval: None
+19:22:24.821904 [info ]: Started building task graph
+19:22:24.822337 [info ]: Finished building task graph [  0.00s]
+19:22:24.825623 [debug]: BigQuery driver resolved: bigquery 0.21.0.dev+dbt0.21.19
+19:22:25.557283 [info ]: Started rendering (5 nodes)
+19:22:25.557399 [info ]: Started model dbt_dev.stg_farm_prices
+19:22:25.557421 [debug]: Started rendering model dbt_dev.stg_farm_prices
+19:22:25.558479 [debug]: Compiled SQL for node model.jaffle_shop_1.stg_farm_prices at target/compiled/jaffle_shop_1/models/staging/stg_farm_prices.sql
+19:22:25.558717 [debug]: Finished rendering [  0.00s] model dbt_dev.stg_farm_prices [success]
+19:22:25.558932 [info ]: Started analyzing (5 nodes)
+19:22:25.559042 [debug]: Started analyzing model dbt_dev.stg_farm_prices
+19:22:25.595328 [debug]: Finished analyzing [  0.04s] model dbt_dev.stg_farm_prices [success]
+19:22:25.595481 [info ]: Started running (5 nodes)
+19:22:25.595534 [info ]: Started running model dbt_dev.stg_farm_prices
+19:22:25.595589 [info ]: Started model dbt_dev.mart_annual_farm_prices
+19:22:25.595615 [debug]: Started rendering model dbt_dev.mart_annual_farm_prices
+19:22:25.596834 [debug]: Compiled SQL for node model.jaffle_shop_1.mart_annual_farm_prices at target/compiled/jaffle_shop_1/models/marts/mart_annual_farm_prices.sql
+19:22:25.597030 [debug]: Finished rendering [  0.00s] model dbt_dev.mart_annual_farm_prices [success]
+19:22:25.597209 [debug]: Started analyzing model dbt_dev.mart_annual_farm_prices
+19:22:25.605546 [debug]: Finished analyzing [  0.01s] model dbt_dev.mart_annual_farm_prices [success]
+19:22:26.663913 [debug]: Writing runtime sql for node "model.jaffle_shop_1.stg_farm_prices"
+19:22:26.665420 [debug]: create_debug_span(...).entered() took 38.399µs
+19:22:28.354038 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.688508736s
+19:22:28.354101 [debug]: reader.schema() took 830ns
+19:22:28.357990 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.692515767s
+19:22:28.358148 [debug]: concat_batches + normalize_result_column_names took 68.104µs
+19:22:28.358225 [debug]: record_current_span_status_from_attrs took 50.023µs
+19:22:28.358261 [debug]: Query executed on node model.jaffle_shop_1.stg_farm_prices:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.jaffle_shop_1.stg_farm_prices", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+
+  create or replace view `bigquery-access-gcp`.`dbt_dev`.`stg_farm_prices`
+  OPTIONS()
+  as 
+
+select
+    REF_DATE as ref_date_raw,
+    safe.parse_date('%Y-%m', trim(REF_DATE)) as price_month,
+    trim(GEO) as geography,
+    trim(PRODUCT) as product,
+    trim(UOM) as unit,
+    trim(SCALAR_FACTOR) as scalar_factor,
+    VALUE as price,
+    nullif(trim(STATUS), '') as status,
+    VECTOR as series_id
+from `bigquery-access-gcp`.`FARM_PRODUCT`.`CANADA_FARM_PRODUCT_PRICES`;
+
+
+19:22:28.358340 [debug]: drop(query_span_guard) (span exit/export) took 85.252µs
+19:22:28.360609 [info ]: Finished running [  2.77s] model dbt_dev.stg_farm_prices [success]
+19:22:28.360762 [info ]:  Succeeded model dbt_dev.stg_farm_prices (view) [1 of 5 in 2.80s]
+19:22:28.361061 [info ]: Started test dbt_dev_dbt_test__audit.assert_farm_monthly_grain
+19:22:28.361097 [debug]: Started rendering test dbt_dev_dbt_test__audit.assert_farm_monthly_grain
+19:22:28.361172 [info ]: Started test dbt_dev_dbt_test__audit.not_null_stg_farm_prices_price_month
+19:22:28.361218 [debug]: Started rendering test dbt_dev_dbt_test__audit.not_null_stg_farm_prices_price_month
+19:22:28.362104 [debug]: Compiled SQL for node test.jaffle_shop_1.assert_farm_monthly_grain at target/compiled/jaffle_shop_1/tests/assert_farm_monthly_grain.sql
+19:22:28.362400 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.assert_farm_monthly_grain [success]
+19:22:28.362575 [debug]: Started analyzing test dbt_dev_dbt_test__audit.assert_farm_monthly_grain
+19:22:28.363638 [debug]: Compiled SQL for node test.jaffle_shop_1.not_null_stg_farm_prices_price_month.d095f6b60e at target/compiled/jaffle_shop_1/target/generic_tests/not_null_stg_farm_prices_price_month.sql
+19:22:28.363620 [debug]: Finished analyzing [  0.00s] test dbt_dev_dbt_test__audit.assert_farm_monthly_grain [success]
+19:22:28.363749 [info ]: Started running test dbt_dev_dbt_test__audit.assert_farm_monthly_grain
+19:22:28.363806 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_farm_prices_price_month [success]
+19:22:28.363894 [debug]: Started analyzing test dbt_dev_dbt_test__audit.not_null_stg_farm_prices_price_month
+19:22:28.364663 [debug]: Finished analyzing [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_farm_prices_price_month [success]
+19:22:28.364785 [info ]: Started running test dbt_dev_dbt_test__audit.not_null_stg_farm_prices_price_month
+19:22:28.367595 [debug]: Writing runtime sql for node "test.jaffle_shop_1.assert_farm_monthly_grain"
+19:22:28.367865 [debug]: Writing runtime sql for node "test.jaffle_shop_1.not_null_stg_farm_prices_price_month.d095f6b60e"
+19:22:28.369667 [debug]: create_debug_span(...).entered() took 25.325µs
+19:22:28.372097 [debug]: create_debug_span(...).entered() took 41.856µs
+19:22:29.820134 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.450365688s
+19:22:29.820214 [debug]: reader.schema() took 1.211µs
+19:22:30.079457 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.707260814s
+19:22:30.079512 [debug]: reader.schema() took 785ns
+19:22:30.230631 [debug]: batch-consume loop (for res in reader) took 410.372146ms
+19:22:30.233291 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.863558999s
+19:22:30.233406 [debug]: concat_batches + normalize_result_column_names took 53.977µs
+19:22:30.233444 [debug]: record_current_span_status_from_attrs took 7.295µs
+19:22:30.233500 [debug]: Query executed on node test.jaffle_shop_1.not_null_stg_farm_prices_price_month.d095f6b60e:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.not_null_stg_farm_prices_price_month.d095f6b60e", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select price_month
+from `bigquery-access-gcp`.`dbt_dev`.`stg_farm_prices`
+where price_month is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+19:22:30.233576 [debug]: drop(query_span_guard) (span exit/export) took 106.496µs
+19:22:30.234365 [info ]: Finished running [  1.87s] test dbt_dev_dbt_test__audit.not_null_stg_farm_prices_price_month [pass]
+19:22:30.234512 [info ]:     Passed test  not_null_stg_farm_prices_price_month [4 of 5 in 1.87s]
+19:22:30.531329 [debug]: batch-consume loop (for res in reader) took 451.784345ms
+19:22:30.533458 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 2.161302808s
+19:22:30.533519 [debug]: concat_batches + normalize_result_column_names took 13.404µs
+19:22:30.533537 [debug]: record_current_span_status_from_attrs took 7.07µs
+19:22:30.533562 [debug]: Query executed on node test.jaffle_shop_1.assert_farm_monthly_grain:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.assert_farm_monthly_grain", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  select
+    price_month, geography, product, unit, scalar_factor
+from `bigquery-access-gcp`.`dbt_dev`.`stg_farm_prices`
+group by price_month, geography, product, unit, scalar_factor
+having count(*) > 1
+  
+  
+      
+    ) dbt_internal_test
+19:22:30.533618 [debug]: drop(query_span_guard) (span exit/export) took 56.773µs
+19:22:30.534436 [info ]: Finished running [  2.17s] test dbt_dev_dbt_test__audit.assert_farm_monthly_grain [pass]
+19:22:30.534521 [info ]:     Passed test  assert_farm_monthly_grain [3 of 5 in 2.17s]
+19:22:30.534701 [info ]: Started running model dbt_dev.mart_annual_farm_prices
+19:22:30.762632 [debug]: Writing runtime sql for node "model.jaffle_shop_1.mart_annual_farm_prices"
+19:22:30.763693 [debug]: create_debug_span(...).entered() took 22.99µs
+19:22:36.062745 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 5.298926062s
+19:22:36.062797 [debug]: reader.schema() took 890ns
+19:22:38.551764 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 7.788000813s
+19:22:38.551890 [debug]: concat_batches + normalize_result_column_names took 45.191µs
+19:22:38.551920 [debug]: record_current_span_status_from_attrs took 16.635µs
+19:22:38.551949 [debug]: Query executed on node model.jaffle_shop_1.mart_annual_farm_prices:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.jaffle_shop_1.mart_annual_farm_prices", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+  
+    
+
+    create or replace table `bigquery-access-gcp`.`dbt_dev`.`mart_annual_farm_prices`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      
+
+select
+    extract(year from price_month) as price_year,
+    geography,
+    product,
+    unit,
+    scalar_factor,
+    min(price_month) as first_month,
+    max(price_month) as last_month,
+    count(*) as months_present,
+    12 - count(*) as months_without_records,
+    count(price) as months_with_price,
+    countif(price is null) as months_missing_price,
+    count(price) = 12 as has_12_month_prices,
+    avg(price) as avg_monthly_price
+from `bigquery-access-gcp`.`dbt_dev`.`stg_farm_prices`
+group by
+    price_year, geography, product, unit, scalar_factor
+    );
+  
+19:22:38.552053 [debug]: drop(query_span_guard) (span exit/export) took 111.856µs
+19:22:38.554652 [info ]: Finished running [  8.02s] model dbt_dev.mart_annual_farm_prices [success]
+19:22:38.554820 [info ]:  Succeeded model dbt_dev.mart_annual_farm_prices (table) [2 of 5 in 8.03s]
+19:22:38.554972 [info ]: Started test dbt_dev_dbt_test__audit.assert_farm_annual_counts
+19:22:38.555001 [debug]: Started rendering test dbt_dev_dbt_test__audit.assert_farm_annual_counts
+19:22:38.556000 [debug]: Compiled SQL for node test.jaffle_shop_1.assert_farm_annual_counts at target/compiled/jaffle_shop_1/tests/assert_farm_annual_counts.sql
+19:22:38.556240 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.assert_farm_annual_counts [success]
+19:22:38.556347 [info ]: Finished rendering [ 13.00s] (5 nodes, 0 skipped, 0 errors)
+19:22:38.556515 [debug]: Started analyzing test dbt_dev_dbt_test__audit.assert_farm_annual_counts
+19:22:38.560422 [debug]: Finished analyzing [  0.00s] test dbt_dev_dbt_test__audit.assert_farm_annual_counts [success]
+19:22:38.560529 [info ]: Finished analyzing [ 13.00s] (5 nodes, 0 skipped, 0 errors)
+19:22:38.560688 [info ]: Started running test dbt_dev_dbt_test__audit.assert_farm_annual_counts
+19:22:38.563037 [debug]: Writing runtime sql for node "test.jaffle_shop_1.assert_farm_annual_counts"
+19:22:38.564098 [debug]: create_debug_span(...).entered() took 22.592µs
+19:22:40.731758 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 2.167474829s
+19:22:40.731808 [debug]: reader.schema() took 742ns
+19:22:42.083177 [debug]: batch-consume loop (for res in reader) took 1.351338237s
+19:22:42.085748 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 3.52159766s
+19:22:42.085802 [debug]: concat_batches + normalize_result_column_names took 10.48µs
+19:22:42.085819 [debug]: record_current_span_status_from_attrs took 7.394µs
+19:22:42.085864 [debug]: Query executed on node test.jaffle_shop_1.assert_farm_annual_counts:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.assert_farm_annual_counts", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  select *
+from `bigquery-access-gcp`.`dbt_dev`.`mart_annual_farm_prices`
+where months_present != months_with_price + months_missing_price
+   or months_present > 12
+   or (months_with_price = 0 and avg_monthly_price is not null)
+   or (months_with_price > 0 and avg_monthly_price is null)
+  
+  
+      
+    ) dbt_internal_test
+19:22:42.085920 [debug]: drop(query_span_guard) (span exit/export) took 64.077µs
+19:22:42.086654 [info ]: Finished running [  3.53s] test dbt_dev_dbt_test__audit.assert_farm_annual_counts [pass]
+19:22:42.086733 [info ]: Finished running [ 16.49s] (5 nodes, 0 skipped, 0 errors)
+19:22:42.086836 [info ]:     Passed test  assert_farm_annual_counts [5 of 5 in 3.53s]
+19:22:42.269423 [info ]: 
+==================== Execution Summary =====================
+Finished 'build' successfully for target 'dev' [17.9s]
+Processed: 2 models | 3 tests
+Summary: 5 total | 5 success
+==================== 2026-10-12T20:24:31.724675Z | 01a131c9-cee9-7570-b5be-fd86136cea84 ====================
+20:24:31.725061 [info ]: dbt 2.0.8
+20:24:31.725652 [info ]: Started loading project
+20:24:31.727479 [info ]: Loading ~/.dbt/profiles.yml
+20:24:31.731710 [info ]: Loading packages.yml
+20:24:31.734087 [debug]:    Started loading packages
+20:24:31.738894 [debug]:     Loaded [  0.00s] packages
+20:24:31.740786 [info ]: Finished loading project [  0.02s]
+20:24:31.741734 [info ]: Started parsing
+20:24:31.819542 [debug]: Finished parsing models/farm_schema.yml [  0.00s]
+20:24:31.819829 [debug]: Finished parsing models/farm_sources.yml [  0.00s]
+20:24:31.820175 [debug]: Finished parsing models/marts/customers.yml [  0.00s]
+20:24:31.820674 [debug]: Finished parsing models/marts/order_items.yml [  0.00s]
+20:24:31.821178 [debug]: Finished parsing models/marts/orders.yml [  0.00s]
+20:24:31.821428 [debug]: Finished parsing models/orders_sources.yml [  0.00s]
+20:24:31.821749 [debug]: Finished parsing models/staging/__sources.yml [  0.00s]
+20:24:31.821918 [debug]: Finished parsing models/staging/stg_customers.yml [  0.00s]
+20:24:31.822267 [debug]: Finished parsing models/staging/stg_locations.yml [  0.00s]
+20:24:31.822476 [debug]: Finished parsing models/staging/stg_order_items.yml [  0.00s]
+20:24:31.822665 [debug]: Finished parsing models/staging/stg_orders.yml [  0.00s]
+20:24:31.822831 [debug]: Finished parsing models/staging/stg_products.yml [  0.00s]
+20:24:31.823008 [debug]: Finished parsing models/staging/stg_supplies.yml [  0.00s]
+20:24:31.833366 [debug]: Finished parsing models/connection_check.sql [  0.00s]
+20:24:31.834562 [debug]: Finished parsing models/marts/customers.sql [  0.00s]
+20:24:31.835234 [debug]: Finished parsing models/marts/locations.sql [  0.00s]
+20:24:31.836036 [debug]: Finished parsing models/marts/mart_annual_farm_prices.sql [  0.00s]
+20:24:31.836763 [debug]: Finished parsing models/marts/order_items.sql [  0.00s]
+20:24:31.837854 [debug]: Finished parsing models/marts/orders.sql [  0.00s]
+20:24:31.838442 [debug]: Finished parsing models/marts/products.sql [  0.00s]
+20:24:31.838931 [debug]: Finished parsing models/marts/supplies.sql [  0.00s]
+20:24:31.839521 [debug]: Finished parsing models/staging/stg_customers.sql [  0.00s]
+20:24:31.840393 [debug]: Finished parsing models/staging/stg_farm_prices.sql [  0.00s]
+20:24:31.840940 [debug]: Finished parsing models/staging/stg_locations.sql [  0.00s]
+20:24:31.841601 [debug]: Finished parsing models/staging/stg_order_items.sql [  0.00s]
+20:24:31.842398 [debug]: Finished parsing models/staging/stg_orders.sql [  0.00s]
+20:24:31.843143 [debug]: Finished parsing models/staging/stg_products.sql [  0.00s]
+20:24:31.844626 [debug]: Finished parsing models/staging/stg_supplies.sql [  0.00s]
+20:24:31.868703 [debug]: Finished parsing tests/assert_farm_annual_counts.sql [  0.00s]
+20:24:31.869293 [debug]: Finished parsing tests/assert_farm_monthly_grain.sql [  0.00s]
+20:24:31.870324 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_c_177c20685a18a9071d4a71719e3d9565.sql [  0.00s]
+20:24:31.871029 [debug]: Finished parsing target/generic_tests/not_null_customers_customer_id.sql [  0.00s]
+20:24:31.871697 [debug]: Finished parsing target/generic_tests/unique_customers_customer_id.sql [  0.00s]
+20:24:31.872415 [debug]: Finished parsing target/generic_tests/accepted_values_customers_customer_type__new__returning.sql [  0.00s]
+20:24:31.873053 [debug]: Finished parsing target/generic_tests/relationships_order_items_order_id__order_id__ref_orders_.sql [  0.00s]
+20:24:31.873749 [debug]: Finished parsing target/generic_tests/not_null_order_items_order_item_id.sql [  0.00s]
+20:24:31.874610 [debug]: Finished parsing target/generic_tests/unique_order_items_order_item_id.sql [  0.00s]
+20:24:31.875542 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_o_c0acd0b625f5605c61af04356663a823.sql [  0.00s]
+20:24:31.876438 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_o_bf2cfee53d5bb32a0a918086ae35fff9.sql [  0.00s]
+20:24:31.877118 [debug]: Finished parsing target/generic_tests/relationships_orders_0389c224a99a98c0b58aedb753f052f0.sql [  0.00s]
+20:24:31.877808 [debug]: Finished parsing target/generic_tests/not_null_orders_order_id.sql [  0.00s]
+20:24:31.878489 [debug]: Finished parsing target/generic_tests/unique_orders_order_id.sql [  0.00s]
+20:24:31.879363 [debug]: Finished parsing target/generic_tests/not_null_stg_customers_customer_id.sql [  0.00s]
+20:24:31.880095 [debug]: Finished parsing target/generic_tests/unique_stg_customers_customer_id.sql [  0.00s]
+20:24:31.880899 [debug]: Finished parsing target/generic_tests/not_null_stg_farm_prices_price_month.sql [  0.00s]
+20:24:31.881667 [debug]: Finished parsing target/generic_tests/not_null_stg_locations_location_id.sql [  0.00s]
+20:24:31.882395 [debug]: Finished parsing target/generic_tests/unique_stg_locations_location_id.sql [  0.00s]
+20:24:31.883158 [debug]: Finished parsing target/generic_tests/not_null_stg_order_items_order_id.sql [  0.00s]
+20:24:31.883945 [debug]: Finished parsing target/generic_tests/relationships_stg_order_items_b3d7cdbd08ebfad01e3226c01c10bba0.sql [  0.00s]
+20:24:31.884681 [debug]: Finished parsing target/generic_tests/not_null_stg_order_items_order_item_id.sql [  0.00s]
+20:24:31.885493 [debug]: Finished parsing target/generic_tests/unique_stg_order_items_order_item_id.sql [  0.00s]
+20:24:31.886154 [debug]: Finished parsing target/generic_tests/dbt_utils_expression_is_true_s_fc9f3efa92425b23fb62ee5a96c17e3f.sql [  0.00s]
+20:24:31.886913 [debug]: Finished parsing target/generic_tests/not_null_stg_orders_order_id.sql [  0.00s]
+20:24:31.887584 [debug]: Finished parsing target/generic_tests/unique_stg_orders_order_id.sql [  0.00s]
+20:24:31.888307 [debug]: Finished parsing target/generic_tests/not_null_stg_products_product_id.sql [  0.00s]
+20:24:31.888904 [debug]: Finished parsing target/generic_tests/unique_stg_products_product_id.sql [  0.00s]
+20:24:31.889690 [debug]: Finished parsing target/generic_tests/not_null_stg_supplies_supply_uuid.sql [  0.00s]
+20:24:31.890383 [debug]: Finished parsing target/generic_tests/unique_stg_supplies_supply_uuid.sql [  0.00s]
+20:24:32.084621 [info ]: Finished parsing [  0.34s]
+20:24:32.116705 [info ]: Started scheduling
+20:24:32.117470 [info ]: Finished scheduling [  0.00s]
+20:24:32.122927 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "bigquery-access-gcp", schema: "dbt_dev", table: "stg_order_items" }) and interval: None
+20:24:32.123016 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "bigquery-access-gcp", schema: "datastream_raw", table: "test_orders" }) and interval: None
+20:24:32.177265 [info ]: Started building task graph
+20:24:32.177849 [info ]: Finished building task graph [  0.00s]
+20:24:32.182515 [debug]: BigQuery driver resolved: bigquery 0.21.0.dev+dbt0.21.19
+20:24:34.186573 [info ]: Started rendering (5 nodes)
+20:24:34.186727 [info ]: Started model dbt_dev.stg_orders
+20:24:34.186803 [debug]: Started rendering model dbt_dev.stg_orders
+20:24:34.188209 [debug]: Compiled SQL for node model.jaffle_shop_1.stg_orders at target/compiled/jaffle_shop_1/models/staging/stg_orders.sql
+20:24:34.188549 [debug]: Finished rendering [  0.00s] model dbt_dev.stg_orders [success]
+20:24:34.188738 [info ]: Started analyzing (5 nodes)
+20:24:34.188849 [debug]: Started analyzing model dbt_dev.stg_orders
+20:24:34.411836 [debug]: Schema hydration: registering 1 schemas from db_runner
+20:24:34.411893 [debug]: Schema hydration: parsing FQN string '`bigquery-access-gcp`.`datastream_raw`.`test_orders`'
+20:24:34.411949 [debug]: Schema hydration: registering cfqn=bigquery-access-gcp.datastream_raw.test_orders (catalog='bigquery-access-gcp', schema='datastream_raw', table='test_orders')
+20:24:34.412109 [debug]: Schema hydration: registration succeeded for bigquery-access-gcp.datastream_raw.test_orders, exists_check=true
+20:24:34.431663 [debug]: Finished analyzing [  0.24s] model dbt_dev.stg_orders [success]
+20:24:34.431815 [info ]: Started running (5 nodes)
+20:24:34.431923 [info ]: Started running model dbt_dev.stg_orders
+20:24:35.454012 [debug]: Writing runtime sql for node "model.jaffle_shop_1.stg_orders"
+20:24:35.455647 [debug]: create_debug_span(...).entered() took 51.762µs
+20:24:37.776275 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 2.320423391s
+20:24:37.776340 [debug]: reader.schema() took 745ns
+20:24:37.781164 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 2.325433638s
+20:24:37.781333 [debug]: concat_batches + normalize_result_column_names took 73.554µs
+20:24:37.781381 [debug]: record_current_span_status_from_attrs took 28.259µs
+20:24:37.781409 [debug]: Query executed on node model.jaffle_shop_1.stg_orders:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.jaffle_shop_1.stg_orders", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+
+  create or replace view `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+  OPTIONS()
+  as 
+
+select
+    order_id,
+    customer_id,
+    order_date,
+    lower(trim(status)) as status,
+    amount,
+    updated_at
+from `bigquery-access-gcp`.`datastream_raw`.`test_orders`;
+
+
+20:24:37.781453 [debug]: drop(query_span_guard) (span exit/export) took 53.858µs
+20:24:37.784361 [info ]: Finished running [  3.35s] model dbt_dev.stg_orders [success]
+20:24:37.784582 [info ]:  Succeeded model dbt_dev.stg_orders (view) [1 of 5 in 3.59s]
+20:24:37.784830 [info ]: Started test dbt_dev_dbt_test__audit.dbt_utils_expression_is_true_stg_orders_order_total_tax_paid_subtotal
+20:24:37.784865 [debug]: Started rendering test dbt_dev_dbt_test__audit.dbt_utils_expression_is_true_stg_orders_order_total_tax_paid_subtotal
+20:24:37.784933 [info ]: Started test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+20:24:37.784957 [debug]: Started rendering test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+20:24:37.784990 [info ]: Started test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+20:24:37.785025 [debug]: Started rendering test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+20:24:37.785062 [info ]: Started test dbt_dev_dbt_test__audit.relationships_stg_order_items_order_id__order_id__ref_stg_orders_
+20:24:37.785140 [debug]: Started rendering test dbt_dev_dbt_test__audit.relationships_stg_order_items_order_id__order_id__ref_stg_orders_
+20:24:37.787329 [debug]: Compiled SQL for node test.jaffle_shop_1.dbt_utils_expression_is_true_stg_orders_order_total_tax_paid_subtotal.bfb885d7fc at target/compiled/jaffle_shop_1/target/generic_tests/dbt_utils_expression_is_true_s_fc9f3efa92425b23fb62ee5a96c17e3f.sql
+20:24:37.787318 [debug]: Compiled SQL for node test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64 at target/compiled/jaffle_shop_1/target/generic_tests/not_null_stg_orders_order_id.sql
+20:24:37.787515 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.dbt_utils_expression_is_true_stg_orders_order_total_tax_paid_subtotal [success]
+20:24:37.787657 [debug]: Started analyzing test dbt_dev_dbt_test__audit.dbt_utils_expression_is_true_stg_orders_order_total_tax_paid_subtotal
+20:24:37.788967 [debug]: Compiled SQL for node test.jaffle_shop_1.relationships_stg_order_items_order_id__order_id__ref_stg_orders_.dbe9930c54 at target/compiled/jaffle_shop_1/target/generic_tests/relationships_stg_order_items_b3d7cdbd08ebfad01e3226c01c10bba0.sql
+20:24:37.789015 [debug]: Compiled SQL for node test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a at target/compiled/jaffle_shop_1/target/generic_tests/unique_stg_orders_order_id.sql
+20:24:37.789134 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.relationships_stg_order_items_order_id__order_id__ref_stg_orders_ [success]
+20:24:37.789305 [debug]: Started analyzing test dbt_dev_dbt_test__audit.relationships_stg_order_items_order_id__order_id__ref_stg_orders_
+20:24:37.789374 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.unique_stg_orders_order_id [success]
+20:24:37.789476 [debug]: Started analyzing test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+20:24:37.790329 [debug]: Finished rendering [  0.01s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id [success]
+20:24:37.790410 [info ]: Finished rendering [  3.60s] (5 nodes, 0 skipped, 0 errors)
+20:24:37.790589 [debug]: Started analyzing test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+20:24:37.791044 [debug]: Finished analyzing [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id [success]
+20:24:37.791144 [info ]: Started running test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+20:24:37.792734 [debug]: Finished analyzing [  0.01s] test dbt_dev_dbt_test__audit.dbt_utils_expression_is_true_stg_orders_order_total_tax_paid_subtotal [success]
+20:24:37.792836 [info ]: Started running test dbt_dev_dbt_test__audit.dbt_utils_expression_is_true_stg_orders_order_total_tax_paid_subtotal
+20:24:37.795374 [debug]: Writing runtime sql for node "test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64"
+20:24:37.796219 [debug]: Finished analyzing [  0.01s] test dbt_dev_dbt_test__audit.unique_stg_orders_order_id [success]
+20:24:37.796321 [info ]: Started running test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+20:24:37.796346 [debug]: Writing runtime sql for node "test.jaffle_shop_1.dbt_utils_expression_is_true_stg_orders_order_total_tax_paid_subtotal.bfb885d7fc"
+20:24:37.797483 [debug]: Finished analyzing [  0.01s] test dbt_dev_dbt_test__audit.relationships_stg_order_items_order_id__order_id__ref_stg_orders_ [success]
+20:24:37.797564 [info ]: Finished analyzing [  3.61s] (5 nodes, 0 skipped, 0 errors)
+20:24:37.797722 [info ]: Started running test dbt_dev_dbt_test__audit.relationships_stg_order_items_order_id__order_id__ref_stg_orders_
+20:24:37.797862 [debug]: create_debug_span(...).entered() took 20.887µs
+20:24:37.800305 [debug]: create_debug_span(...).entered() took 37.638µs
+20:24:37.800385 [debug]: Writing runtime sql for node "test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a"
+20:24:37.803348 [debug]: Writing runtime sql for node "test.jaffle_shop_1.relationships_stg_order_items_order_id__order_id__ref_stg_orders_.dbe9930c54"
+20:24:37.807591 [debug]: create_debug_span(...).entered() took 40.713µs
+20:24:37.808271 [debug]: create_debug_span(...).entered() took 35.991µs
+20:24:38.283419 [debug]: Query executed on node test.jaffle_shop_1.dbt_utils_expression_is_true_stg_orders_order_total_tax_paid_subtotal.bfb885d7fc:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.dbt_utils_expression_is_true_stg_orders_order_total_tax_paid_subtotal.bfb885d7fc", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+
+
+
+select
+    1
+from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+
+where not(order_total - tax_paid = subtotal)
+
+
+  
+  
+      
+    ) dbt_internal_test
+20:24:38.947507 [debug]: Query executed on node test.jaffle_shop_1.relationships_stg_order_items_order_id__order_id__ref_stg_orders_.dbe9930c54:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.relationships_stg_order_items_order_id__order_id__ref_stg_orders_.dbe9930c54", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with child as (
+    select order_id as from_field
+    from `bigquery-access-gcp`.`dbt_dev`.`stg_order_items`
+    where order_id is not null
+),
+
+parent as (
+    select order_id as to_field
+    from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+)
+
+select
+    from_field
+
+from child
+left join parent
+    on child.from_field = parent.to_field
+
+where parent.to_field is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+20:24:39.284143 [error]: [DbDriverFailed (dbt1308)]: Error materializing test test.jaffle_shop_1.dbt_utils_expression_is_true_stg_orders_order_total_tax_paid_subtotal.bfb885d7fc (target/run/jaffle_shop_1/target/generic_tests/dbt_utils_expression_is_true_s_fc9f3efa92425b23fb62ee5a96c17e3f.sql)
+  [BigQuery] googleapi: Error 400: Unrecognized name: order_total; Did you mean order_date? at [19:11], invalidQuery (Query: https://console.cloud.google.com/bigquery?project=bigquery-access-gcp&j=bq:US:adbc-26e50188-65bd-4807-8e70-defe26280f0c&page=queryresults)
+  (in run/jaffle_shop_1/target/generic_tests/dbt_utils_expression_is_true_s_fc9f3efa92425b23fb62ee5a96c17e3f.sql:1:1)
+20:24:39.284387 [info ]: Finished running [  1.49s] test dbt_dev_dbt_test__audit.dbt_utils_expression_is_true_stg_orders_order_total_tax_paid_subtotal [error]
+20:24:39.284486 [info ]:     Failed test  dbt_utils_expression_is_true_stg_orders_order_total_tax_paid_subtotal (models/staging/stg_orders.yml:5:9) [2 of 5 in 1.50s]
+20:24:39.574567 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.774024097s
+20:24:39.574613 [debug]: reader.schema() took 724ns
+20:24:39.939988 [debug]: batch-consume loop (for res in reader) took 365.342846ms
+20:24:39.943027 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 2.142528703s
+20:24:39.943131 [debug]: concat_batches + normalize_result_column_names took 35.77µs
+20:24:39.943157 [debug]: record_current_span_status_from_attrs took 13.381µs
+20:24:39.943200 [debug]: Query executed on node test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_id
+from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+where order_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+20:24:39.943272 [debug]: drop(query_span_guard) (span exit/export) took 90.416µs
+20:24:39.944008 [info ]: Finished running [  2.15s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id [pass]
+20:24:39.944154 [info ]:     Passed test  not_null_stg_orders_order_id [3 of 5 in 2.16s]
+20:24:39.948115 [error]: [DbDriverFailed (dbt1308)]: Error materializing test test.jaffle_shop_1.relationships_stg_order_items_order_id__order_id__ref_stg_orders_.dbe9930c54 (target/run/jaffle_shop_1/target/generic_tests/relationships_stg_order_items_b3d7cdbd08ebfad01e3226c01c10bba0.sql)
+  [BigQuery] googleapi: Error 404: Not found: Table bigquery-access-gcp:dbt_dev.stg_order_items was not found in location US, notFound (Query: https://console.cloud.google.com/bigquery?project=bigquery-access-gcp&j=bq:US:adbc-b4a86f7a-8008-43b8-aa16-bdfc62719c95&page=queryresults)
+  (in run/jaffle_shop_1/target/generic_tests/relationships_stg_order_items_b3d7cdbd08ebfad01e3226c01c10bba0.sql:1:1)
+20:24:39.948375 [info ]: Finished running [  2.15s] test dbt_dev_dbt_test__audit.relationships_stg_order_items_order_id__order_id__ref_stg_orders_ [error]
+20:24:39.948473 [info ]:     Failed test  relationships_stg_order_items_order_id__order_id__ref_stg_orders_ (models/staging/stg_order_items.yml:14:13) [5 of 5 in 2.16s]
+20:24:43.558577 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 5.750741825s
+20:24:43.558648 [debug]: reader.schema() took 949ns
+20:24:43.873215 [debug]: batch-consume loop (for res in reader) took 314.511141ms
+20:24:43.876726 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 6.069077511s
+20:24:43.876801 [debug]: concat_batches + normalize_result_column_names took 18.264µs
+20:24:43.876834 [debug]: record_current_span_status_from_attrs took 7.734µs
+20:24:43.876861 [debug]: Query executed on node test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select order_id as unique_field
+  from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+  where order_id is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+20:24:43.876941 [debug]: drop(query_span_guard) (span exit/export) took 90.267µs
+20:24:43.877816 [info ]: Finished running [  6.08s] test dbt_dev_dbt_test__audit.unique_stg_orders_order_id [pass]
+20:24:43.877975 [info ]: Finished running [  9.45s] (5 nodes, 0 skipped, 2 errors)
+20:24:43.878062 [info ]:     Passed test  unique_stg_orders_order_id [4 of 5 in 6.09s]
+20:24:44.069342 [info ]: 
+==================== Execution Summary =====================
+Finished 'build' with 2 errors for target 'dev' [12.3s]
+Processed: 1 model | 4 tests
+Summary: 5 total | 3 success | 2 error
+==================== 2026-10-12T20:28:50.983780Z | 01a131cd-c3a5-7e11-8001-11e39e90ddde ====================
+20:28:50.984053 [info ]: dbt 2.0.8
+20:28:50.984610 [info ]: Started loading project
+20:28:50.985879 [info ]: Loading ~/.dbt/profiles.yml
+20:28:50.988472 [info ]: Loading packages.yml
+20:28:50.989905 [debug]:    Started loading packages
+20:28:50.993156 [debug]:     Loaded [  0.00s] packages
+20:28:50.994652 [info ]: Finished loading project [  0.01s]
+20:28:50.995379 [info ]: Started parsing
+20:28:51.073552 [debug]: Finished parsing models/farm_schema.yml [  0.00s]
+20:28:51.073715 [debug]: Finished parsing models/farm_sources.yml [  0.00s]
+20:28:51.073838 [debug]: Finished parsing models/orders_schema.yml [  0.00s]
+20:28:51.074029 [debug]: Finished parsing models/orders_sources.yml [  0.00s]
+20:28:51.080738 [debug]: Finished parsing models/connection_check.sql [  0.00s]
+20:28:51.081642 [debug]: Finished parsing models/marts/mart_annual_farm_prices.sql [  0.00s]
+20:28:51.082704 [debug]: Finished parsing models/staging/stg_farm_prices.sql [  0.00s]
+20:28:51.083606 [debug]: Finished parsing models/staging/stg_orders.sql [  0.00s]
+20:28:51.090473 [debug]: Finished parsing tests/assert_farm_annual_counts.sql [  0.00s]
+20:28:51.091404 [debug]: Finished parsing tests/assert_farm_monthly_grain.sql [  0.00s]
+20:28:51.092324 [debug]: Finished parsing target/generic_tests/not_null_stg_farm_prices_price_month.sql [  0.00s]
+20:28:51.093075 [debug]: Finished parsing target/generic_tests/not_null_stg_orders_amount.sql [  0.00s]
+20:28:51.093765 [debug]: Finished parsing target/generic_tests/not_null_stg_orders_order_date.sql [  0.00s]
+20:28:51.094543 [debug]: Finished parsing target/generic_tests/unique_stg_orders_order_id.sql [  0.00s]
+20:28:51.095282 [debug]: Finished parsing target/generic_tests/not_null_stg_orders_order_id.sql [  0.00s]
+20:28:51.280416 [info ]: Finished parsing [  0.29s]
+20:28:51.303405 [info ]: Started scheduling
+20:28:51.303716 [info ]: Finished scheduling [  0.00s]
+20:28:51.309332 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "bigquery-access-gcp", schema: "datastream_raw", table: "test_orders" }) and interval: None
+20:28:51.361056 [info ]: Started building task graph
+20:28:51.361368 [info ]: Finished building task graph [  0.00s]
+20:28:51.365414 [debug]: BigQuery driver resolved: bigquery 0.21.0.dev+dbt0.21.19
+20:28:51.660414 [info ]: Started rendering (5 nodes)
+20:28:51.660639 [info ]: Started model dbt_dev.stg_orders
+20:28:51.660657 [debug]: Started rendering model dbt_dev.stg_orders
+20:28:51.662275 [debug]: Compiled SQL for node model.jaffle_shop_1.stg_orders at target/compiled/jaffle_shop_1/models/staging/stg_orders.sql
+20:28:51.662517 [debug]: Finished rendering [  0.00s] model dbt_dev.stg_orders [success]
+20:28:51.662685 [info ]: Started analyzing (5 nodes)
+20:28:51.662803 [debug]: Started analyzing model dbt_dev.stg_orders
+20:28:51.692856 [debug]: Finished analyzing [  0.03s] model dbt_dev.stg_orders [success]
+20:28:51.692991 [info ]: Started running (5 nodes)
+20:28:51.693041 [info ]: Started running model dbt_dev.stg_orders
+20:28:52.748331 [debug]: Writing runtime sql for node "model.jaffle_shop_1.stg_orders"
+20:28:52.749818 [debug]: create_debug_span(...).entered() took 39.661µs
+20:28:54.141167 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.39114551s
+20:28:54.141262 [debug]: reader.schema() took 728ns
+20:28:54.145386 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.395468376s
+20:28:54.145499 [debug]: concat_batches + normalize_result_column_names took 44.725µs
+20:28:54.145531 [debug]: record_current_span_status_from_attrs took 7.633µs
+20:28:54.145554 [debug]: Query executed on node model.jaffle_shop_1.stg_orders:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.jaffle_shop_1.stg_orders", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+
+  create or replace view `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+  OPTIONS()
+  as 
+
+select
+    order_id,
+    customer_id,
+    order_date,
+    lower(trim(status)) as status,
+    amount,
+    updated_at
+from `bigquery-access-gcp`.`datastream_raw`.`test_orders`;
+
+
+20:28:54.145626 [debug]: drop(query_span_guard) (span exit/export) took 82.797µs
+20:28:54.147706 [info ]: Finished running [  2.45s] model dbt_dev.stg_orders [success]
+20:28:54.147872 [info ]:  Succeeded model dbt_dev.stg_orders (view) [1 of 5 in 2.48s]
+20:28:54.148046 [info ]: Started test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+20:28:54.148081 [debug]: Started rendering test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+20:28:54.148139 [info ]: Started test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date
+20:28:54.148162 [debug]: Started rendering test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date
+20:28:54.148206 [info ]: Started test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+20:28:54.148226 [debug]: Started rendering test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+20:28:54.148255 [info ]: Started test dbt_dev_dbt_test__audit.not_null_stg_orders_amount
+20:28:54.148278 [debug]: Started rendering test dbt_dev_dbt_test__audit.not_null_stg_orders_amount
+20:28:54.150141 [debug]: Compiled SQL for node test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64 at target/compiled/jaffle_shop_1/target/generic_tests/not_null_stg_orders_order_id.sql
+20:28:54.150413 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id [success]
+20:28:54.150488 [debug]: Compiled SQL for node test.jaffle_shop_1.not_null_stg_orders_order_date.2177a3e8bb at target/compiled/jaffle_shop_1/target/generic_tests/not_null_stg_orders_order_date.sql
+20:28:54.150542 [debug]: Started analyzing test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+20:28:54.151276 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date [success]
+20:28:54.151362 [debug]: Started analyzing test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date
+20:28:54.151508 [debug]: Finished analyzing [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id [success]
+20:28:54.151578 [info ]: Started running test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+20:28:54.151620 [debug]: Finished analyzing [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date [success]
+20:28:54.152242 [debug]: Compiled SQL for node test.jaffle_shop_1.not_null_stg_orders_amount.2546645448 at target/compiled/jaffle_shop_1/target/generic_tests/not_null_stg_orders_amount.sql
+20:28:54.152555 [debug]: Compiled SQL for node test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a at target/compiled/jaffle_shop_1/target/generic_tests/unique_stg_orders_order_id.sql
+20:28:54.153298 [info ]: Started running test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date
+20:28:54.153363 [debug]: Finished rendering [  0.01s] test dbt_dev_dbt_test__audit.not_null_stg_orders_amount [success]
+20:28:54.153452 [debug]: Started analyzing test dbt_dev_dbt_test__audit.not_null_stg_orders_amount
+20:28:54.153507 [debug]: Finished rendering [  0.01s] test dbt_dev_dbt_test__audit.unique_stg_orders_order_id [success]
+20:28:54.153554 [info ]: Finished rendering [  2.49s] (5 nodes, 0 skipped, 0 errors)
+20:28:54.153697 [debug]: Started analyzing test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+20:28:54.153769 [debug]: Finished analyzing [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_amount [success]
+20:28:54.153851 [info ]: Started running test dbt_dev_dbt_test__audit.not_null_stg_orders_amount
+20:28:54.155408 [debug]: Writing runtime sql for node "test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64"
+20:28:54.156871 [debug]: Writing runtime sql for node "test.jaffle_shop_1.not_null_stg_orders_order_date.2177a3e8bb"
+20:28:54.157895 [debug]: Writing runtime sql for node "test.jaffle_shop_1.not_null_stg_orders_amount.2546645448"
+20:28:54.160238 [debug]: Finished analyzing [  0.01s] test dbt_dev_dbt_test__audit.unique_stg_orders_order_id [success]
+20:28:54.160334 [info ]: Finished analyzing [  2.50s] (5 nodes, 0 skipped, 0 errors)
+20:28:54.160952 [info ]: Started running test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+20:28:54.161558 [debug]: create_debug_span(...).entered() took 33.256µs
+20:28:54.161834 [debug]: create_debug_span(...).entered() took 29.891µs
+20:28:54.164704 [debug]: create_debug_span(...).entered() took 30.208µs
+20:28:54.168411 [debug]: Writing runtime sql for node "test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a"
+20:28:54.170315 [debug]: create_debug_span(...).entered() took 23.387µs
+20:28:55.699518 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.529098671s
+20:28:55.699637 [debug]: reader.schema() took 707ns
+20:28:56.107838 [debug]: batch-consume loop (for res in reader) took 408.139074ms
+20:28:56.110991 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.940615173s
+20:28:56.111073 [debug]: concat_batches + normalize_result_column_names took 18.444µs
+20:28:56.111099 [debug]: record_current_span_status_from_attrs took 7.205µs
+20:28:56.111124 [debug]: Query executed on node test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select order_id as unique_field
+  from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+  where order_id is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+20:28:56.111215 [debug]: drop(query_span_guard) (span exit/export) took 101.138µs
+20:28:56.112135 [info ]: Finished running [  1.95s] test dbt_dev_dbt_test__audit.unique_stg_orders_order_id [pass]
+20:28:56.112289 [info ]:     Passed test  unique_stg_orders_order_id [4 of 5 in 1.96s]
+20:28:56.973933 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 2.812274844s
+20:28:56.973981 [debug]: reader.schema() took 656ns
+20:28:57.358305 [debug]: batch-consume loop (for res in reader) took 384.289815ms
+20:28:57.361739 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 3.200128478s
+20:28:57.361814 [debug]: concat_batches + normalize_result_column_names took 10.35µs
+20:28:57.361831 [debug]: record_current_span_status_from_attrs took 6.707µs
+20:28:57.361846 [debug]: Query executed on node test.jaffle_shop_1.not_null_stg_orders_order_date.2177a3e8bb:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.not_null_stg_orders_order_date.2177a3e8bb", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_date
+from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+where order_date is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+20:28:57.361911 [debug]: drop(query_span_guard) (span exit/export) took 71.386µs
+20:28:57.362506 [info ]: Finished running [  3.21s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date [pass]
+20:28:57.362654 [info ]:     Passed test  not_null_stg_orders_order_date [3 of 5 in 3.21s]
+20:29:00.724978 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 6.55978007s
+20:29:00.725049 [debug]: reader.schema() took 687ns
+20:29:00.916679 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 6.754744099s
+20:29:00.916730 [debug]: reader.schema() took 1.467µs
+20:29:01.085182 [debug]: batch-consume loop (for res in reader) took 360.0826ms
+20:29:01.088035 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 6.923155668s
+20:29:01.088115 [debug]: concat_batches + normalize_result_column_names took 8.564µs
+20:29:01.088129 [debug]: record_current_span_status_from_attrs took 6.672µs
+20:29:01.088144 [debug]: Query executed on node test.jaffle_shop_1.not_null_stg_orders_amount.2546645448:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.not_null_stg_orders_amount.2546645448", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select amount
+from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+where amount is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+20:29:01.088234 [debug]: drop(query_span_guard) (span exit/export) took 87.912µs
+20:29:01.088886 [info ]: Finished running [  6.94s] test dbt_dev_dbt_test__audit.not_null_stg_orders_amount [pass]
+20:29:01.089037 [info ]:     Passed test  not_null_stg_orders_amount [5 of 5 in 6.94s]
+20:29:01.712030 [debug]: batch-consume loop (for res in reader) took 795.266257ms
+20:29:01.714473 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 7.552596272s
+20:29:01.714530 [debug]: concat_batches + normalize_result_column_names took 9.097µs
+20:29:01.714543 [debug]: record_current_span_status_from_attrs took 6.138µs
+20:29:01.714553 [debug]: Query executed on node test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_id
+from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+where order_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+20:29:01.714618 [debug]: drop(query_span_guard) (span exit/export) took 69.598µs
+20:29:01.715188 [info ]: Finished running [  7.56s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id [pass]
+20:29:01.715351 [info ]: Finished running [ 10.02s] (5 nodes, 0 skipped, 0 errors)
+20:29:01.715429 [info ]:     Passed test  not_null_stg_orders_order_id [2 of 5 in 7.56s]
+20:29:01.910555 [info ]: 
+==================== Execution Summary =====================
+Finished 'build' successfully for target 'dev' [10.9s]
+Processed: 1 model | 4 tests
+Summary: 5 total | 5 success
+==================== 2026-10-12T20:29:56.277355Z | 01a131ce-c2b3-7d93-bab3-56574462df04 ====================
+20:29:56.277667 [info ]: dbt 2.0.8
+20:29:56.278137 [info ]: Started loading project
+20:29:56.279366 [info ]: Loading ~/.dbt/profiles.yml
+20:29:56.281828 [info ]: Loading packages.yml
+20:29:56.283083 [debug]:    Started loading packages
+20:29:56.286182 [debug]:     Loaded [  0.00s] packages
+20:29:56.287801 [info ]: Finished loading project [  0.01s]
+20:29:56.288504 [info ]: Started parsing
+20:29:56.361778 [debug]: Finished parsing models/farm_schema.yml [  0.00s]
+20:29:56.362010 [debug]: Finished parsing models/farm_sources.yml [  0.00s]
+20:29:56.362257 [debug]: Finished parsing models/orders_schema.yml [  0.00s]
+20:29:56.362428 [debug]: Finished parsing models/orders_sources.yml [  0.00s]
+20:29:56.369008 [debug]: Finished parsing models/connection_check.sql [  0.00s]
+20:29:56.369797 [debug]: Finished parsing models/marts/fct_daily_sales.sql [  0.00s]
+20:29:56.370603 [debug]: Finished parsing models/marts/mart_annual_farm_prices.sql [  0.00s]
+20:29:56.371430 [debug]: Finished parsing models/staging/stg_farm_prices.sql [  0.00s]
+20:29:56.372119 [debug]: Finished parsing models/staging/stg_orders.sql [  0.00s]
+20:29:56.379536 [debug]: Finished parsing tests/assert_farm_annual_counts.sql [  0.00s]
+20:29:56.379992 [debug]: Finished parsing tests/assert_farm_monthly_grain.sql [  0.00s]
+20:29:56.380728 [debug]: Finished parsing target/generic_tests/not_null_stg_farm_prices_price_month.sql [  0.00s]
+20:29:56.381604 [debug]: Finished parsing target/generic_tests/not_null_stg_orders_amount.sql [  0.00s]
+20:29:56.382449 [debug]: Finished parsing target/generic_tests/not_null_stg_orders_order_date.sql [  0.00s]
+20:29:56.383106 [debug]: Finished parsing target/generic_tests/unique_stg_orders_order_id.sql [  0.00s]
+20:29:56.383847 [debug]: Finished parsing target/generic_tests/not_null_stg_orders_order_id.sql [  0.00s]
+20:29:56.575313 [info ]: Finished parsing [  0.29s]
+20:29:56.598240 [info ]: Started scheduling
+20:29:56.598573 [info ]: Finished scheduling [  0.00s]
+20:29:56.604428 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "bigquery-access-gcp", schema: "datastream_raw", table: "test_orders" }) and interval: None
+20:29:56.655415 [info ]: Started building task graph
+20:29:56.655767 [info ]: Finished building task graph [  0.00s]
+20:29:56.659057 [debug]: BigQuery driver resolved: bigquery 0.21.0.dev+dbt0.21.19
+20:29:57.203800 [info ]: Started rendering (6 nodes)
+20:29:57.203920 [info ]: Started model dbt_dev.stg_orders
+20:29:57.203958 [debug]: Started rendering model dbt_dev.stg_orders
+20:29:57.205366 [debug]: Compiled SQL for node model.jaffle_shop_1.stg_orders at target/compiled/jaffle_shop_1/models/staging/stg_orders.sql
+20:29:57.205566 [debug]: Finished rendering [  0.00s] model dbt_dev.stg_orders [success]
+20:29:57.205824 [info ]: Started analyzing (6 nodes)
+20:29:57.205920 [debug]: Started analyzing model dbt_dev.stg_orders
+20:29:57.240355 [debug]: Finished analyzing [  0.03s] model dbt_dev.stg_orders [success]
+20:29:57.240534 [info ]: Started model dbt_dev.fct_daily_sales
+20:29:57.240565 [debug]: Started rendering model dbt_dev.fct_daily_sales
+20:29:57.240621 [info ]: Started running (6 nodes)
+20:29:57.240698 [info ]: Started running model dbt_dev.stg_orders
+20:29:57.242045 [debug]: Compiled SQL for node model.jaffle_shop_1.fct_daily_sales at target/compiled/jaffle_shop_1/models/marts/fct_daily_sales.sql
+20:29:57.242267 [debug]: Finished rendering [  0.00s] model dbt_dev.fct_daily_sales [success]
+20:29:57.242417 [debug]: Started analyzing model dbt_dev.fct_daily_sales
+20:29:57.247075 [debug]: Finished analyzing [  0.00s] model dbt_dev.fct_daily_sales [success]
+20:29:58.474031 [debug]: Writing runtime sql for node "model.jaffle_shop_1.stg_orders"
+20:29:58.475510 [debug]: create_debug_span(...).entered() took 35.979µs
+20:29:59.939817 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.464140306s
+20:29:59.939882 [debug]: reader.schema() took 870ns
+20:29:59.945633 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.470047339s
+20:29:59.945740 [debug]: concat_batches + normalize_result_column_names took 27.525µs
+20:29:59.945765 [debug]: record_current_span_status_from_attrs took 11.248µs
+20:29:59.945787 [debug]: Query executed on node model.jaffle_shop_1.stg_orders:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.jaffle_shop_1.stg_orders", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+
+  create or replace view `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+  OPTIONS()
+  as 
+
+select
+    order_id,
+    customer_id,
+    order_date,
+    lower(trim(status)) as status,
+    amount,
+    updated_at
+from `bigquery-access-gcp`.`datastream_raw`.`test_orders`;
+
+
+20:29:59.945852 [debug]: drop(query_span_guard) (span exit/export) took 66.078µs
+20:29:59.949015 [info ]: Finished running [  2.71s] model dbt_dev.stg_orders [success]
+20:29:59.949165 [info ]:  Succeeded model dbt_dev.stg_orders (view) [1 of 6 in 2.74s]
+20:29:59.949357 [info ]: Started test dbt_dev_dbt_test__audit.not_null_stg_orders_amount
+20:29:59.949387 [debug]: Started rendering test dbt_dev_dbt_test__audit.not_null_stg_orders_amount
+20:29:59.949464 [info ]: Started test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+20:29:59.949492 [debug]: Started rendering test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+20:29:59.949601 [info ]: Started test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+20:29:59.949657 [debug]: Started rendering test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+20:29:59.949707 [info ]: Started test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date
+20:29:59.949722 [debug]: Started rendering test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date
+20:29:59.951460 [debug]: Compiled SQL for node test.jaffle_shop_1.not_null_stg_orders_amount.2546645448 at target/compiled/jaffle_shop_1/target/generic_tests/not_null_stg_orders_amount.sql
+20:29:59.951698 [debug]: Compiled SQL for node test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64 at target/compiled/jaffle_shop_1/target/generic_tests/not_null_stg_orders_order_id.sql
+20:29:59.951698 [debug]: Compiled SQL for node test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a at target/compiled/jaffle_shop_1/target/generic_tests/unique_stg_orders_order_id.sql
+20:29:59.951933 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_amount [success]
+20:29:59.952053 [debug]: Started analyzing test dbt_dev_dbt_test__audit.not_null_stg_orders_amount
+20:29:59.952119 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.unique_stg_orders_order_id [success]
+20:29:59.952183 [debug]: Started analyzing test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+20:29:59.952264 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id [success]
+20:29:59.952364 [debug]: Started analyzing test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+20:29:59.953005 [debug]: Finished analyzing [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id [success]
+20:29:59.953103 [info ]: Started running test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+20:29:59.953207 [debug]: Compiled SQL for node test.jaffle_shop_1.not_null_stg_orders_order_date.2177a3e8bb at target/compiled/jaffle_shop_1/target/generic_tests/not_null_stg_orders_order_date.sql
+20:29:59.953154 [debug]: Finished analyzing [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_amount [success]
+20:29:59.954360 [info ]: Started running test dbt_dev_dbt_test__audit.not_null_stg_orders_amount
+20:29:59.954415 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date [success]
+20:29:59.954469 [info ]: Finished rendering [  2.75s] (6 nodes, 0 skipped, 0 errors)
+20:29:59.954654 [debug]: Started analyzing test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date
+20:29:59.954904 [debug]: Finished analyzing [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date [success]
+20:29:59.954986 [info ]: Started running test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date
+20:29:59.956090 [debug]: Writing runtime sql for node "test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64"
+20:29:59.958619 [debug]: Writing runtime sql for node "test.jaffle_shop_1.not_null_stg_orders_order_date.2177a3e8bb"
+20:29:59.958663 [debug]: create_debug_span(...).entered() took 35.056µs
+20:29:59.959276 [debug]: Finished analyzing [  0.01s] test dbt_dev_dbt_test__audit.unique_stg_orders_order_id [success]
+20:29:59.959363 [info ]: Finished analyzing [  2.75s] (6 nodes, 0 skipped, 0 errors)
+20:29:59.959533 [info ]: Started running test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+20:29:59.960608 [debug]: Writing runtime sql for node "test.jaffle_shop_1.not_null_stg_orders_amount.2546645448"
+20:29:59.961068 [debug]: create_debug_span(...).entered() took 19.226µs
+20:29:59.963439 [debug]: Writing runtime sql for node "test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a"
+20:29:59.964173 [debug]: create_debug_span(...).entered() took 35.11µs
+20:29:59.967624 [debug]: create_debug_span(...).entered() took 40.113µs
+20:30:01.374785 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.406482453s
+20:30:01.374894 [debug]: reader.schema() took 934ns
+20:30:01.560150 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.598918458s
+20:30:01.560231 [debug]: reader.schema() took 675ns
+20:30:01.641879 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.683070081s
+20:30:01.641930 [debug]: reader.schema() took 614ns
+20:30:01.768777 [debug]: batch-consume loop (for res in reader) took 393.848365ms
+20:30:01.771663 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.80398133s
+20:30:01.771756 [debug]: concat_batches + normalize_result_column_names took 14.187µs
+20:30:01.771783 [debug]: record_current_span_status_from_attrs took 10.08µs
+20:30:01.771812 [debug]: Query executed on node test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select order_id as unique_field
+  from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+  where order_id is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+20:30:01.771896 [debug]: drop(query_span_guard) (span exit/export) took 98.095µs
+20:30:01.772703 [info ]: Finished running [  1.81s] test dbt_dev_dbt_test__audit.unique_stg_orders_order_id [pass]
+20:30:01.772787 [info ]:     Passed test  unique_stg_orders_order_id [4 of 6 in 1.82s]
+20:30:02.156556 [debug]: batch-consume loop (for res in reader) took 514.585034ms
+20:30:02.159910 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 2.201210565s
+20:30:02.159972 [debug]: concat_batches + normalize_result_column_names took 11.227µs
+20:30:02.159990 [debug]: record_current_span_status_from_attrs took 7.057µs
+20:30:02.160006 [debug]: Query executed on node test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_id
+from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+where order_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+20:30:02.160063 [debug]: drop(query_span_guard) (span exit/export) took 63.241µs
+20:30:02.160679 [info ]: Finished running [  2.21s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id [pass]
+20:30:02.160768 [info ]:     Passed test  not_null_stg_orders_order_id [5 of 6 in 2.21s]
+20:30:02.212437 [debug]: batch-consume loop (for res in reader) took 652.125755ms
+20:30:02.215279 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 2.254157972s
+20:30:02.215334 [debug]: concat_batches + normalize_result_column_names took 9.5µs
+20:30:02.215347 [debug]: record_current_span_status_from_attrs took 6.883µs
+20:30:02.215359 [debug]: Query executed on node test.jaffle_shop_1.not_null_stg_orders_order_date.2177a3e8bb:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.not_null_stg_orders_order_date.2177a3e8bb", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_date
+from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+where order_date is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+20:30:02.215434 [debug]: drop(query_span_guard) (span exit/export) took 81.295µs
+20:30:02.216042 [info ]: Finished running [  2.26s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date [pass]
+20:30:02.216206 [info ]:     Passed test  not_null_stg_orders_order_date [6 of 6 in 2.27s]
+20:30:03.232852 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 3.268564467s
+20:30:03.232909 [debug]: reader.schema() took 678ns
+20:30:03.665831 [debug]: batch-consume loop (for res in reader) took 432.887132ms
+20:30:03.669883 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 3.705644764s
+20:30:03.669964 [debug]: concat_batches + normalize_result_column_names took 11.624µs
+20:30:03.669981 [debug]: record_current_span_status_from_attrs took 6.904µs
+20:30:03.669998 [debug]: Query executed on node test.jaffle_shop_1.not_null_stg_orders_amount.2546645448:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.not_null_stg_orders_amount.2546645448", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select amount
+from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+where amount is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+20:30:03.670048 [debug]: drop(query_span_guard) (span exit/export) took 54.42µs
+20:30:03.670648 [info ]: Finished running [  3.72s] test dbt_dev_dbt_test__audit.not_null_stg_orders_amount [pass]
+20:30:03.670722 [info ]:     Passed test  not_null_stg_orders_amount [3 of 6 in 3.72s]
+20:30:03.670849 [info ]: Started running model dbt_dev.fct_daily_sales
+20:30:03.675960 [debug]: Writing runtime sql for node "model.jaffle_shop_1.fct_daily_sales"
+20:30:03.676999 [debug]: create_debug_span(...).entered() took 22.293µs
+20:30:06.753008 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 3.075815927s
+20:30:06.753056 [debug]: reader.schema() took 581ns
+20:30:07.073225 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 3.39617311s
+20:30:07.073346 [debug]: concat_batches + normalize_result_column_names took 34.114µs
+20:30:07.073378 [debug]: record_current_span_status_from_attrs took 6.125µs
+20:30:07.073400 [debug]: Query executed on node model.jaffle_shop_1.fct_daily_sales:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.jaffle_shop_1.fct_daily_sales", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+  
+    
+
+    create or replace table `bigquery-access-gcp`.`dbt_dev`.`fct_daily_sales`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      
+
+select
+    order_date,
+    status,
+    count(*) as order_count,
+    sum(amount) as total_amount
+from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+group by order_date, status
+    );
+  
+20:30:07.073471 [debug]: drop(query_span_guard) (span exit/export) took 82.236µs
+20:30:07.075173 [info ]: Finished running [  3.40s] model dbt_dev.fct_daily_sales [success]
+20:30:07.075327 [info ]: Finished running [  9.83s] (6 nodes, 0 skipped, 0 errors)
+20:30:07.075425 [info ]:  Succeeded model dbt_dev.fct_daily_sales (table) [2 of 6 in 3.41s]
+20:30:07.277954 [info ]: 
+==================== Execution Summary =====================
+Finished 'build' successfully for target 'dev' [11.0s]
+Processed: 2 models | 4 tests
+Summary: 6 total | 6 success
+==================== 2026-10-12T20:43:09.961070Z | 01a131da-df06-7591-b9e7-7d6e6e029b33 ====================
+20:43:09.961388 [info ]: dbt 2.0.8
+20:43:09.961908 [info ]: Started loading project
+20:43:09.963120 [info ]: Loading ~/.dbt/profiles.yml
+20:43:09.965751 [info ]: Loading packages.yml
+20:43:09.967040 [debug]:    Started loading packages
+20:43:09.970552 [debug]:     Loaded [  0.00s] packages
+20:43:09.972098 [info ]: Finished loading project [  0.01s]
+20:43:09.972902 [info ]: Started parsing
+20:43:10.045086 [debug]: Finished parsing models/farm_schema.yml [  0.00s]
+20:43:10.045355 [debug]: Finished parsing models/farm_sources.yml [  0.00s]
+20:43:10.045564 [debug]: Finished parsing models/orders_schema.yml [  0.00s]
+20:43:10.045741 [debug]: Finished parsing models/orders_sources.yml [  0.00s]
+20:43:10.052848 [debug]: Finished parsing models/connection_check.sql [  0.00s]
+20:43:10.053703 [debug]: Finished parsing models/marts/fct_daily_sales.sql [  0.00s]
+20:43:10.054537 [debug]: Finished parsing models/marts/mart_annual_farm_prices.sql [  0.00s]
+20:43:10.055389 [debug]: Finished parsing models/staging/stg_farm_prices.sql [  0.00s]
+20:43:10.056332 [debug]: Finished parsing models/staging/stg_orders.sql [  0.00s]
+20:43:10.064078 [debug]: Finished parsing tests/assert_farm_annual_counts.sql [  0.00s]
+20:43:10.064959 [debug]: Finished parsing tests/assert_farm_monthly_grain.sql [  0.00s]
+20:43:10.065838 [debug]: Finished parsing target/generic_tests/not_null_stg_farm_prices_price_month.sql [  0.00s]
+20:43:10.066722 [debug]: Finished parsing target/generic_tests/not_null_stg_orders_amount.sql [  0.00s]
+20:43:10.067563 [debug]: Finished parsing target/generic_tests/not_null_stg_orders_order_date.sql [  0.00s]
+20:43:10.068595 [debug]: Finished parsing target/generic_tests/unique_stg_orders_order_id.sql [  0.00s]
+20:43:10.069634 [debug]: Finished parsing target/generic_tests/not_null_stg_orders_order_id.sql [  0.00s]
+20:43:10.257597 [info ]: Finished parsing [  0.28s]
+20:43:10.281969 [info ]: Started scheduling
+20:43:10.282335 [info ]: Finished scheduling [  0.00s]
+20:43:10.289153 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "bigquery-access-gcp", schema: "datastream_raw", table: "test_orders" }) and interval: None
+20:43:10.368914 [info ]: Started building task graph
+20:43:10.369373 [info ]: Finished building task graph [  0.00s]
+20:43:10.374131 [debug]: BigQuery driver resolved: bigquery 0.21.0.dev+dbt0.21.19
+20:43:10.638430 [info ]: Started rendering (6 nodes)
+20:43:10.638652 [info ]: Started model dbt_dev.stg_orders
+20:43:10.638690 [debug]: Started rendering model dbt_dev.stg_orders
+20:43:10.640446 [debug]: Compiled SQL for node model.jaffle_shop_1.stg_orders at target/compiled/jaffle_shop_1/models/staging/stg_orders.sql
+20:43:10.640671 [debug]: Finished rendering [  0.00s] model dbt_dev.stg_orders [success]
+20:43:10.640839 [info ]: Started analyzing (6 nodes)
+20:43:10.640958 [debug]: Started analyzing model dbt_dev.stg_orders
+20:43:10.673362 [debug]: Finished analyzing [  0.03s] model dbt_dev.stg_orders [success]
+20:43:10.673543 [info ]: Started running (6 nodes)
+20:43:10.673596 [info ]: Started running model dbt_dev.stg_orders
+20:43:10.673658 [info ]: Started model dbt_dev.fct_daily_sales
+20:43:10.673678 [debug]: Started rendering model dbt_dev.fct_daily_sales
+20:43:10.674952 [debug]: Compiled SQL for node model.jaffle_shop_1.fct_daily_sales at target/compiled/jaffle_shop_1/models/marts/fct_daily_sales.sql
+20:43:10.675162 [debug]: Finished rendering [  0.00s] model dbt_dev.fct_daily_sales [success]
+20:43:10.675365 [debug]: Started analyzing model dbt_dev.fct_daily_sales
+20:43:10.680688 [debug]: Finished analyzing [  0.01s] model dbt_dev.fct_daily_sales [success]
+20:43:11.809899 [debug]: Writing runtime sql for node "model.jaffle_shop_1.stg_orders"
+20:43:11.811572 [debug]: create_debug_span(...).entered() took 37.399µs
+20:43:13.044563 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.232821864s
+20:43:13.044612 [debug]: reader.schema() took 985ns
+20:43:13.049444 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.237812808s
+20:43:13.049575 [debug]: concat_batches + normalize_result_column_names took 70.815µs
+20:43:13.049619 [debug]: record_current_span_status_from_attrs took 13.638µs
+20:43:13.049642 [debug]: Query executed on node model.jaffle_shop_1.stg_orders:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.jaffle_shop_1.stg_orders", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+
+  create or replace view `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+  OPTIONS()
+  as 
+
+select
+    order_id,
+    customer_id,
+    order_date,
+    lower(trim(status)) as status,
+    amount,
+    updated_at
+from `bigquery-access-gcp`.`datastream_raw`.`test_orders`;
+
+
+20:43:13.049708 [debug]: drop(query_span_guard) (span exit/export) took 65.116µs
+20:43:13.052016 [info ]: Finished running [  2.38s] model dbt_dev.stg_orders [success]
+20:43:13.052101 [info ]:  Succeeded model dbt_dev.stg_orders (view) [1 of 6 in 2.41s]
+20:43:13.052336 [info ]: Started test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date
+20:43:13.052368 [debug]: Started rendering test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date
+20:43:13.052435 [info ]: Started test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+20:43:13.052462 [debug]: Started rendering test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+20:43:13.052503 [info ]: Started test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+20:43:13.052527 [debug]: Started rendering test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+20:43:13.052569 [info ]: Started test dbt_dev_dbt_test__audit.not_null_stg_orders_amount
+20:43:13.052595 [debug]: Started rendering test dbt_dev_dbt_test__audit.not_null_stg_orders_amount
+20:43:13.054605 [debug]: Compiled SQL for node test.jaffle_shop_1.not_null_stg_orders_order_date.2177a3e8bb at target/compiled/jaffle_shop_1/target/generic_tests/not_null_stg_orders_order_date.sql
+20:43:13.054605 [debug]: Compiled SQL for node test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64 at target/compiled/jaffle_shop_1/target/generic_tests/not_null_stg_orders_order_id.sql
+20:43:13.054809 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id [success]
+20:43:13.054926 [debug]: Started analyzing test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+20:43:13.054933 [debug]: Compiled SQL for node test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a at target/compiled/jaffle_shop_1/target/generic_tests/unique_stg_orders_order_id.sql
+20:43:13.055147 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date [success]
+20:43:13.055262 [debug]: Started analyzing test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date
+20:43:13.055712 [debug]: Compiled SQL for node test.jaffle_shop_1.not_null_stg_orders_amount.2546645448 at target/compiled/jaffle_shop_1/target/generic_tests/not_null_stg_orders_amount.sql
+20:43:13.055879 [debug]: Finished analyzing [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id [success]
+20:43:13.055976 [info ]: Started running test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+20:43:13.056016 [debug]: Finished analyzing [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date [success]
+20:43:13.056081 [info ]: Started running test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date
+20:43:13.056126 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.unique_stg_orders_order_id [success]
+20:43:13.056214 [debug]: Started analyzing test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+20:43:13.056256 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_amount [success]
+20:43:13.056298 [info ]: Finished rendering [  2.42s] (6 nodes, 0 skipped, 0 errors)
+20:43:13.056469 [debug]: Started analyzing test dbt_dev_dbt_test__audit.not_null_stg_orders_amount
+20:43:13.056710 [debug]: Finished analyzing [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_amount [success]
+20:43:13.056787 [info ]: Started running test dbt_dev_dbt_test__audit.not_null_stg_orders_amount
+20:43:13.059091 [debug]: Writing runtime sql for node "test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64"
+20:43:13.059417 [debug]: Writing runtime sql for node "test.jaffle_shop_1.not_null_stg_orders_order_date.2177a3e8bb"
+20:43:13.060691 [debug]: create_debug_span(...).entered() took 33.939µs
+20:43:13.060809 [debug]: create_debug_span(...).entered() took 20.087µs
+20:43:13.062813 [debug]: Writing runtime sql for node "test.jaffle_shop_1.not_null_stg_orders_amount.2546645448"
+20:43:13.063410 [debug]: Finished analyzing [  0.01s] test dbt_dev_dbt_test__audit.unique_stg_orders_order_id [success]
+20:43:13.063561 [info ]: Finished analyzing [  2.42s] (6 nodes, 0 skipped, 0 errors)
+20:43:13.063708 [info ]: Started running test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+20:43:13.066789 [debug]: create_debug_span(...).entered() took 47.668µs
+20:43:13.068501 [debug]: Writing runtime sql for node "test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a"
+20:43:13.076481 [debug]: create_debug_span(...).entered() took 86.761µs
+20:43:14.480431 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.403815514s
+20:43:14.480490 [debug]: reader.schema() took 1.101µs
+20:43:14.504658 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.443847869s
+20:43:14.504707 [debug]: reader.schema() took 779ns
+20:43:14.699586 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.632665091s
+20:43:14.699636 [debug]: reader.schema() took 1.13µs
+20:43:14.760031 [debug]: batch-consume loop (for res in reader) took 279.509132ms
+20:43:14.764120 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.687586161s
+20:43:14.764239 [debug]: concat_batches + normalize_result_column_names took 16.908µs
+20:43:14.764266 [debug]: record_current_span_status_from_attrs took 7.632µs
+20:43:14.764312 [debug]: Query executed on node test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select order_id as unique_field
+  from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+  where order_id is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+20:43:14.764392 [debug]: drop(query_span_guard) (span exit/export) took 86.051µs
+20:43:14.765425 [info ]: Finished running [  1.70s] test dbt_dev_dbt_test__audit.unique_stg_orders_order_id [pass]
+20:43:14.765573 [info ]:     Passed test  unique_stg_orders_order_id [5 of 6 in 1.71s]
+20:43:14.790671 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.72975835s
+20:43:14.790722 [debug]: reader.schema() took 724ns
+20:43:14.800489 [debug]: batch-consume loop (for res in reader) took 295.752024ms
+20:43:14.803502 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.742771286s
+20:43:14.803570 [debug]: concat_batches + normalize_result_column_names took 9.536µs
+20:43:14.803611 [debug]: record_current_span_status_from_attrs took 6.245µs
+20:43:14.803650 [debug]: Query executed on node test.jaffle_shop_1.not_null_stg_orders_order_date.2177a3e8bb:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.not_null_stg_orders_order_date.2177a3e8bb", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_date
+from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+where order_date is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+20:43:14.803695 [debug]: drop(query_span_guard) (span exit/export) took 58.567µs
+20:43:14.804348 [info ]: Finished running [  1.75s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date [pass]
+20:43:14.804457 [info ]:     Passed test  not_null_stg_orders_order_date [3 of 6 in 1.75s]
+20:43:15.013517 [debug]: batch-consume loop (for res in reader) took 313.849401ms
+20:43:15.015945 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.949098936s
+20:43:15.016000 [debug]: concat_batches + normalize_result_column_names took 10.097µs
+20:43:15.016021 [debug]: record_current_span_status_from_attrs took 6.663µs
+20:43:15.016036 [debug]: Query executed on node test.jaffle_shop_1.not_null_stg_orders_amount.2546645448:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.not_null_stg_orders_amount.2546645448", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select amount
+from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+where amount is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+20:43:15.016077 [debug]: drop(query_span_guard) (span exit/export) took 46.538µs
+20:43:15.016772 [info ]: Finished running [  1.96s] test dbt_dev_dbt_test__audit.not_null_stg_orders_amount [pass]
+20:43:15.016908 [info ]:     Passed test  not_null_stg_orders_amount [6 of 6 in 1.96s]
+20:43:15.076271 [debug]: batch-consume loop (for res in reader) took 285.516336ms
+20:43:15.078950 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 2.018101715s
+20:43:15.079043 [debug]: concat_batches + normalize_result_column_names took 15.913µs
+20:43:15.079072 [debug]: record_current_span_status_from_attrs took 10.339µs
+20:43:15.079091 [debug]: Query executed on node test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_id
+from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+where order_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+20:43:15.079146 [debug]: drop(query_span_guard) (span exit/export) took 61.099µs
+20:43:15.079730 [info ]: Finished running [  2.02s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id [pass]
+20:43:15.079882 [info ]:     Passed test  not_null_stg_orders_order_id [4 of 6 in 2.02s]
+20:43:15.080008 [info ]: Started running model dbt_dev.fct_daily_sales
+20:43:15.301168 [debug]: Writing runtime sql for node "model.jaffle_shop_1.fct_daily_sales"
+20:43:15.302533 [debug]: create_debug_span(...).entered() took 21.669µs
+20:43:19.702591 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 4.399952353s
+20:43:19.702640 [debug]: reader.schema() took 716ns
+20:43:20.093246 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 4.790661332s
+20:43:20.093345 [debug]: concat_batches + normalize_result_column_names took 20.757µs
+20:43:20.093364 [debug]: record_current_span_status_from_attrs took 5.666µs
+20:43:20.093382 [debug]: Query executed on node model.jaffle_shop_1.fct_daily_sales:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.jaffle_shop_1.fct_daily_sales", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+  
+    
+
+    create or replace table `bigquery-access-gcp`.`dbt_dev`.`fct_daily_sales`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      
+
+select
+    order_date,
+    status,
+    count(*) as order_count,
+    sum(amount) as total_amount
+from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+group by order_date, status
+    );
+  
+20:43:20.093442 [debug]: drop(query_span_guard) (span exit/export) took 66.92µs
+20:43:20.096201 [info ]: Finished running [  5.02s] model dbt_dev.fct_daily_sales [success]
+20:43:20.096304 [info ]: Finished running [  9.42s] (6 nodes, 0 skipped, 0 errors)
+20:43:20.096370 [info ]:  Succeeded model dbt_dev.fct_daily_sales (table) [2 of 6 in 5.02s]
+20:43:20.298997 [info ]: 
+==================== Execution Summary =====================
+Finished 'build' successfully for target 'dev' [10.3s]
+Processed: 2 models | 4 tests
+Summary: 6 total | 6 success
+==================== 2026-10-12T20:48:57.331926Z | 01a131e0-2bf1-7ad2-b964-17569018a779 ====================
+20:48:57.332272 [info ]: dbt 2.0.8
+20:48:57.332764 [info ]: Started loading project
+20:48:57.333942 [info ]: Loading ~/.dbt/profiles.yml
+20:48:57.336615 [info ]: Loading packages.yml
+20:48:57.338044 [debug]:    Started loading packages
+20:48:57.341849 [debug]:     Loaded [  0.00s] packages
+20:48:57.343675 [info ]: Finished loading project [  0.01s]
+20:48:57.344467 [info ]: Started parsing
+20:48:57.420609 [debug]: Finished parsing models/farm_schema.yml [  0.00s]
+20:48:57.421092 [debug]: Finished parsing models/farm_sources.yml [  0.00s]
+20:48:57.421371 [debug]: Finished parsing models/orders_schema.yml [  0.00s]
+20:48:57.421813 [debug]: Finished parsing models/orders_sources.yml [  0.00s]
+20:48:57.434186 [debug]: Finished parsing models/connection_check.sql [  0.00s]
+20:48:57.436658 [debug]: Finished parsing models/marts/fct_daily_sales.sql [  0.00s]
+20:48:57.437803 [debug]: Finished parsing models/marts/mart_annual_farm_prices.sql [  0.00s]
+20:48:57.438746 [debug]: Finished parsing models/staging/stg_farm_prices.sql [  0.00s]
+20:48:57.439587 [debug]: Finished parsing models/staging/stg_orders.sql [  0.00s]
+20:48:57.450996 [debug]: Finished parsing tests/assert_farm_annual_counts.sql [  0.00s]
+20:48:57.451957 [debug]: Finished parsing tests/assert_farm_monthly_grain.sql [  0.00s]
+20:48:57.452819 [debug]: Finished parsing target/generic_tests/not_null_stg_farm_prices_price_month.sql [  0.00s]
+20:48:57.453653 [debug]: Finished parsing target/generic_tests/not_null_stg_orders_amount.sql [  0.00s]
+20:48:57.454436 [debug]: Finished parsing target/generic_tests/not_null_stg_orders_order_date.sql [  0.00s]
+20:48:57.455102 [debug]: Finished parsing target/generic_tests/unique_stg_orders_order_id.sql [  0.00s]
+20:48:57.455799 [debug]: Finished parsing target/generic_tests/not_null_stg_orders_order_id.sql [  0.00s]
+20:48:57.773013 [info ]: Finished parsing [  0.43s]
+20:48:57.805822 [info ]: Started scheduling
+20:48:57.806128 [info ]: Finished scheduling [  0.00s]
+20:48:57.812573 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "bigquery-access-gcp", schema: "datastream_raw", table: "test_orders" }) and interval: None
+20:48:57.886106 [info ]: Started building task graph
+20:48:57.886562 [info ]: Finished building task graph [  0.00s]
+20:48:57.891172 [debug]: BigQuery driver resolved: bigquery 0.21.0.dev+dbt0.21.19
+20:48:58.460566 [info ]: Started rendering (6 nodes)
+20:48:58.460845 [info ]: Started model dbt_dev.stg_orders
+20:48:58.460873 [debug]: Started rendering model dbt_dev.stg_orders
+20:48:58.463276 [debug]: Compiled SQL for node model.jaffle_shop_1.stg_orders at target/compiled/jaffle_shop_1/models/staging/stg_orders.sql
+20:48:58.463581 [debug]: Finished rendering [  0.00s] model dbt_dev.stg_orders [success]
+20:48:58.463758 [info ]: Started analyzing (6 nodes)
+20:48:58.463852 [debug]: Started analyzing model dbt_dev.stg_orders
+20:48:58.514048 [debug]: Finished analyzing [  0.05s] model dbt_dev.stg_orders [success]
+20:48:58.514269 [info ]: Started running (6 nodes)
+20:48:58.514362 [info ]: Started running model dbt_dev.stg_orders
+20:48:58.514438 [info ]: Started model dbt_dev.fct_daily_sales
+20:48:58.514455 [debug]: Started rendering model dbt_dev.fct_daily_sales
+20:48:58.515772 [debug]: Compiled SQL for node model.jaffle_shop_1.fct_daily_sales at target/compiled/jaffle_shop_1/models/marts/fct_daily_sales.sql
+20:48:58.515978 [debug]: Finished rendering [  0.00s] model dbt_dev.fct_daily_sales [success]
+20:48:58.516143 [debug]: Started analyzing model dbt_dev.fct_daily_sales
+20:48:58.528177 [debug]: Finished analyzing [  0.01s] model dbt_dev.fct_daily_sales [success]
+20:49:04.437964 [debug]: Writing runtime sql for node "model.jaffle_shop_1.stg_orders"
+20:49:04.439612 [debug]: create_debug_span(...).entered() took 41.042µs
+20:49:06.240412 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.800640922s
+20:49:06.240463 [debug]: reader.schema() took 858ns
+20:49:06.245839 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.806176106s
+20:49:06.245927 [debug]: concat_batches + normalize_result_column_names took 31.502µs
+20:49:06.245945 [debug]: record_current_span_status_from_attrs took 7.941µs
+20:49:06.245964 [debug]: Query executed on node model.jaffle_shop_1.stg_orders:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.jaffle_shop_1.stg_orders", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+
+  create or replace view `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+  OPTIONS()
+  as 
+
+select
+    order_id,
+    customer_id,
+    order_date,
+    lower(trim(status)) as status,
+    amount,
+    updated_at
+from `bigquery-access-gcp`.`datastream_raw`.`test_orders`;
+
+
+20:49:06.246022 [debug]: drop(query_span_guard) (span exit/export) took 67.833µs
+20:49:06.249108 [info ]: Finished running [  7.73s] model dbt_dev.stg_orders [success]
+20:49:06.249292 [info ]:  Succeeded model dbt_dev.stg_orders (view) [1 of 6 in 7.79s]
+20:49:06.249505 [info ]: Started test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date
+20:49:06.249539 [debug]: Started rendering test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date
+20:49:06.249617 [info ]: Started test dbt_dev_dbt_test__audit.not_null_stg_orders_amount
+20:49:06.249647 [debug]: Started rendering test dbt_dev_dbt_test__audit.not_null_stg_orders_amount
+20:49:06.249683 [info ]: Started test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+20:49:06.249709 [debug]: Started rendering test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+20:49:06.249741 [info ]: Started test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+20:49:06.249759 [debug]: Started rendering test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+20:49:06.252366 [debug]: Compiled SQL for node test.jaffle_shop_1.not_null_stg_orders_amount.2546645448 at target/compiled/jaffle_shop_1/target/generic_tests/not_null_stg_orders_amount.sql
+20:49:06.252713 [debug]: Compiled SQL for node test.jaffle_shop_1.not_null_stg_orders_order_date.2177a3e8bb at target/compiled/jaffle_shop_1/target/generic_tests/not_null_stg_orders_order_date.sql
+20:49:06.252975 [debug]: Compiled SQL for node test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64 at target/compiled/jaffle_shop_1/target/generic_tests/not_null_stg_orders_order_id.sql
+20:49:06.252881 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_amount [success]
+20:49:06.253162 [debug]: Started analyzing test dbt_dev_dbt_test__audit.not_null_stg_orders_amount
+20:49:06.253254 [debug]: Compiled SQL for node test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a at target/compiled/jaffle_shop_1/target/generic_tests/unique_stg_orders_order_id.sql
+20:49:06.253866 [debug]: Finished analyzing [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_amount [success]
+20:49:06.253960 [info ]: Started running test dbt_dev_dbt_test__audit.not_null_stg_orders_amount
+20:49:06.254033 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date [success]
+20:49:06.254348 [debug]: Started analyzing test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date
+20:49:06.254475 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id [success]
+20:49:06.254556 [debug]: Started analyzing test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+20:49:06.254816 [debug]: Finished analyzing [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date [success]
+20:49:06.254883 [info ]: Started running test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date
+20:49:06.255702 [debug]: Finished rendering [  0.01s] test dbt_dev_dbt_test__audit.unique_stg_orders_order_id [success]
+20:49:06.255770 [info ]: Finished rendering [  7.80s] (6 nodes, 0 skipped, 0 errors)
+20:49:06.255938 [debug]: Started analyzing test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+20:49:06.256048 [debug]: Finished analyzing [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id [success]
+20:49:06.256110 [info ]: Started running test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+20:49:06.258223 [debug]: Writing runtime sql for node "test.jaffle_shop_1.not_null_stg_orders_amount.2546645448"
+20:49:06.259485 [debug]: Writing runtime sql for node "test.jaffle_shop_1.not_null_stg_orders_order_date.2177a3e8bb"
+20:49:06.259910 [debug]: Writing runtime sql for node "test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64"
+20:49:06.260047 [debug]: create_debug_span(...).entered() took 40.987µs
+20:49:06.261335 [debug]: create_debug_span(...).entered() took 93.835µs
+20:49:06.263461 [debug]: Finished analyzing [  0.01s] test dbt_dev_dbt_test__audit.unique_stg_orders_order_id [success]
+20:49:06.263563 [info ]: Finished analyzing [  7.80s] (6 nodes, 0 skipped, 0 errors)
+20:49:06.263882 [info ]: Started running test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+20:49:06.263893 [debug]: create_debug_span(...).entered() took 40.034µs
+20:49:06.268263 [debug]: Writing runtime sql for node "test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a"
+20:49:06.277593 [debug]: create_debug_span(...).entered() took 39.473µs
+20:49:07.698758 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.43820454s
+20:49:07.698831 [debug]: reader.schema() took 871ns
+20:49:07.758339 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.496822764s
+20:49:07.758393 [debug]: reader.schema() took 893ns
+20:49:08.004699 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.740718228s
+20:49:08.004755 [debug]: reader.schema() took 813ns
+20:49:08.062924 [debug]: batch-consume loop (for res in reader) took 304.499882ms
+20:49:08.068101 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.806706521s
+20:49:08.068193 [debug]: concat_batches + normalize_result_column_names took 13.508µs
+20:49:08.068232 [debug]: record_current_span_status_from_attrs took 9.051µs
+20:49:08.068250 [debug]: Query executed on node test.jaffle_shop_1.not_null_stg_orders_order_date.2177a3e8bb:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.not_null_stg_orders_order_date.2177a3e8bb", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_date
+from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+where order_date is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+20:49:08.068296 [debug]: drop(query_span_guard) (span exit/export) took 53.451µs
+20:49:08.069434 [info ]: Finished running [  1.81s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date [pass]
+20:49:08.069674 [info ]:     Passed test  not_null_stg_orders_order_date [3 of 6 in 1.82s]
+20:49:08.136265 [debug]: batch-consume loop (for res in reader) took 437.398862ms
+20:49:08.140206 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.879822831s
+20:49:08.140287 [debug]: concat_batches + normalize_result_column_names took 11.59µs
+20:49:08.140306 [debug]: record_current_span_status_from_attrs took 6.469µs
+20:49:08.140321 [debug]: Query executed on node test.jaffle_shop_1.not_null_stg_orders_amount.2546645448:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.not_null_stg_orders_amount.2546645448", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select amount
+from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+where amount is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+20:49:08.140370 [debug]: drop(query_span_guard) (span exit/export) took 55.392µs
+20:49:08.141342 [info ]: Finished running [  1.89s] test dbt_dev_dbt_test__audit.not_null_stg_orders_amount [pass]
+20:49:08.141508 [info ]:     Passed test  not_null_stg_orders_amount [4 of 6 in 1.89s]
+20:49:08.391692 [debug]: batch-consume loop (for res in reader) took 386.902316ms
+20:49:08.394563 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 2.130630256s
+20:49:08.394665 [debug]: concat_batches + normalize_result_column_names took 15.211µs
+20:49:08.394689 [debug]: record_current_span_status_from_attrs took 12.543µs
+20:49:08.394712 [debug]: Query executed on node test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_id
+from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+where order_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+20:49:08.394757 [debug]: drop(query_span_guard) (span exit/export) took 52.726µs
+20:49:08.395538 [info ]: Finished running [  2.14s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id [pass]
+20:49:08.395718 [info ]:     Passed test  not_null_stg_orders_order_id [5 of 6 in 2.14s]
+20:49:08.558970 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 2.281272693s
+20:49:08.559024 [debug]: reader.schema() took 767ns
+20:49:08.838289 [debug]: batch-consume loop (for res in reader) took 279.225112ms
+20:49:08.841149 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 2.5634903s
+20:49:08.841260 [debug]: concat_batches + normalize_result_column_names took 11.418µs
+20:49:08.841286 [debug]: record_current_span_status_from_attrs took 7.728µs
+20:49:08.841304 [debug]: Query executed on node test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select order_id as unique_field
+  from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+  where order_id is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+20:49:08.841356 [debug]: drop(query_span_guard) (span exit/export) took 60.28µs
+20:49:08.841947 [info ]: Finished running [  2.58s] test dbt_dev_dbt_test__audit.unique_stg_orders_order_id [pass]
+20:49:08.842111 [info ]:     Passed test  unique_stg_orders_order_id [6 of 6 in 2.59s]
+20:49:08.842255 [info ]: Started running model dbt_dev.fct_daily_sales
+20:49:09.141784 [debug]: Writing runtime sql for node "model.jaffle_shop_1.fct_daily_sales"
+20:49:09.143423 [debug]: create_debug_span(...).entered() took 25.992µs
+20:49:11.798065 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 2.654522823s
+20:49:11.798117 [debug]: reader.schema() took 1.297µs
+20:49:12.139137 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 2.995654409s
+20:49:12.139257 [debug]: concat_batches + normalize_result_column_names took 28.277µs
+20:49:12.139287 [debug]: record_current_span_status_from_attrs took 11.176µs
+20:49:12.139324 [debug]: Query executed on node model.jaffle_shop_1.fct_daily_sales:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.jaffle_shop_1.fct_daily_sales", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+  
+    
+
+    create or replace table `bigquery-access-gcp`.`dbt_dev`.`fct_daily_sales`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      
+
+select
+    order_date,
+    status,
+    count(*) as order_count,
+    sum(amount) as total_amount
+from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+group by order_date, status
+    );
+  
+20:49:12.139397 [debug]: drop(query_span_guard) (span exit/export) took 87.273µs
+20:49:12.141876 [info ]: Finished running [  3.30s] model dbt_dev.fct_daily_sales [success]
+20:49:12.142061 [info ]: Finished running [ 13.63s] (6 nodes, 0 skipped, 0 errors)
+20:49:12.142147 [info ]:  Succeeded model dbt_dev.fct_daily_sales (table) [2 of 6 in 3.31s]
+20:49:12.397599 [info ]: 
+==================== Execution Summary =====================
+Finished 'build' successfully for target 'dev' [15.1s]
+Processed: 2 models | 4 tests
+Summary: 6 total | 6 success
+==================== 2026-10-12T21:06:09.422615Z | 01a131ef-eb8c-7c63-8ba7-91cb62605dfd ====================
+21:06:09.422895 [info ]: dbt 2.0.8
+21:06:09.423419 [info ]: Started loading project
+21:06:09.424760 [info ]: Loading ~/.dbt/profiles.yml
+21:06:09.427588 [info ]: Loading packages.yml
+21:06:09.429032 [debug]:    Started loading packages
+21:06:09.432515 [debug]:     Loaded [  0.00s] packages
+21:06:09.434054 [info ]: Finished loading project [  0.01s]
+21:06:09.434728 [info ]: Started parsing
+21:06:09.512399 [debug]: Finished parsing models/farm_schema.yml [  0.00s]
+21:06:09.512580 [debug]: Finished parsing models/farm_sources.yml [  0.00s]
+21:06:09.512716 [debug]: Finished parsing models/orders_schema.yml [  0.00s]
+21:06:09.512846 [debug]: Finished parsing models/orders_sources.yml [  0.00s]
+21:06:09.519999 [debug]: Finished parsing models/connection_check.sql [  0.00s]
+21:06:09.520882 [debug]: Finished parsing models/marts/fct_daily_sales.sql [  0.00s]
+21:06:09.521715 [debug]: Finished parsing models/marts/mart_annual_farm_prices.sql [  0.00s]
+21:06:09.522484 [debug]: Finished parsing models/staging/stg_farm_prices.sql [  0.00s]
+21:06:09.523177 [debug]: Finished parsing models/staging/stg_orders.sql [  0.00s]
+21:06:09.530630 [debug]: Finished parsing tests/assert_farm_annual_counts.sql [  0.00s]
+21:06:09.531131 [debug]: Finished parsing tests/assert_farm_monthly_grain.sql [  0.00s]
+21:06:09.532014 [debug]: Finished parsing target/generic_tests/not_null_stg_farm_prices_price_month.sql [  0.00s]
+21:06:09.532854 [debug]: Finished parsing target/generic_tests/not_null_stg_orders_amount.sql [  0.00s]
+21:06:09.533622 [debug]: Finished parsing target/generic_tests/not_null_stg_orders_order_date.sql [  0.00s]
+21:06:09.534318 [debug]: Finished parsing target/generic_tests/unique_stg_orders_order_id.sql [  0.00s]
+21:06:09.535000 [debug]: Finished parsing target/generic_tests/not_null_stg_orders_order_id.sql [  0.00s]
+21:06:09.718111 [info ]: Finished parsing [  0.28s]
+21:06:09.742681 [info ]: Started scheduling
+21:06:09.743033 [info ]: Finished scheduling [  0.00s]
+21:06:09.747846 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "bigquery-access-gcp", schema: "datastream_raw", table: "test_orders" }) and interval: None
+21:06:09.802484 [info ]: Started building task graph
+21:06:09.802898 [info ]: Finished building task graph [  0.00s]
+21:06:09.806446 [debug]: BigQuery driver resolved: bigquery 0.21.0.dev+dbt0.21.19
+21:06:10.070812 [info ]: Started rendering (6 nodes)
+21:06:10.071044 [info ]: Started model dbt_dev.stg_orders
+21:06:10.071071 [debug]: Started rendering model dbt_dev.stg_orders
+21:06:10.072357 [debug]: Compiled SQL for node model.jaffle_shop_1.stg_orders at target/compiled/jaffle_shop_1/models/staging/stg_orders.sql
+21:06:10.072584 [debug]: Finished rendering [  0.00s] model dbt_dev.stg_orders [success]
+21:06:10.072751 [info ]: Started analyzing (6 nodes)
+21:06:10.072864 [debug]: Started analyzing model dbt_dev.stg_orders
+21:06:10.103904 [debug]: Finished analyzing [  0.03s] model dbt_dev.stg_orders [success]
+21:06:10.104079 [info ]: Started running (6 nodes)
+21:06:10.104183 [info ]: Started running model dbt_dev.stg_orders
+21:06:10.104258 [info ]: Started model dbt_dev.fct_daily_sales
+21:06:10.104291 [debug]: Started rendering model dbt_dev.fct_daily_sales
+21:06:10.105677 [debug]: Compiled SQL for node model.jaffle_shop_1.fct_daily_sales at target/compiled/jaffle_shop_1/models/marts/fct_daily_sales.sql
+21:06:10.105871 [debug]: Finished rendering [  0.00s] model dbt_dev.fct_daily_sales [success]
+21:06:10.106019 [debug]: Started analyzing model dbt_dev.fct_daily_sales
+21:06:10.109795 [debug]: Finished analyzing [  0.00s] model dbt_dev.fct_daily_sales [success]
+21:06:11.462902 [debug]: Writing runtime sql for node "model.jaffle_shop_1.stg_orders"
+21:06:11.464400 [debug]: create_debug_span(...).entered() took 38.411µs
+21:06:12.741386 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.276759048s
+21:06:12.741441 [debug]: reader.schema() took 1.152µs
+21:06:12.746445 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.281961978s
+21:06:12.746563 [debug]: concat_batches + normalize_result_column_names took 43.148µs
+21:06:12.746592 [debug]: record_current_span_status_from_attrs took 7.219µs
+21:06:12.746614 [debug]: Query executed on node model.jaffle_shop_1.stg_orders:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.jaffle_shop_1.stg_orders", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+
+  create or replace view `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+  OPTIONS()
+  as 
+
+select
+    order_id,
+    customer_id,
+    order_date,
+    lower(trim(status)) as status,
+    amount,
+    updated_at
+from `bigquery-access-gcp`.`datastream_raw`.`test_orders`;
+
+
+21:06:12.746693 [debug]: drop(query_span_guard) (span exit/export) took 89.603µs
+21:06:12.748835 [info ]: Finished running [  2.64s] model dbt_dev.stg_orders [success]
+21:06:12.749017 [info ]:  Succeeded model dbt_dev.stg_orders (view) [1 of 6 in 2.68s]
+21:06:12.749181 [info ]: Started test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+21:06:12.749231 [debug]: Started rendering test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+21:06:12.749279 [info ]: Started test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+21:06:12.749298 [debug]: Started rendering test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+21:06:12.749326 [info ]: Started test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date
+21:06:12.749344 [debug]: Started rendering test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date
+21:06:12.749389 [info ]: Started test dbt_dev_dbt_test__audit.not_null_stg_orders_amount
+21:06:12.749408 [debug]: Started rendering test dbt_dev_dbt_test__audit.not_null_stg_orders_amount
+21:06:12.751429 [debug]: Compiled SQL for node test.jaffle_shop_1.not_null_stg_orders_order_date.2177a3e8bb at target/compiled/jaffle_shop_1/target/generic_tests/not_null_stg_orders_order_date.sql
+21:06:12.751447 [debug]: Compiled SQL for node test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a at target/compiled/jaffle_shop_1/target/generic_tests/unique_stg_orders_order_id.sql
+21:06:12.751615 [debug]: Compiled SQL for node test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64 at target/compiled/jaffle_shop_1/target/generic_tests/not_null_stg_orders_order_id.sql
+21:06:12.751635 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date [success]
+21:06:12.751730 [debug]: Started analyzing test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date
+21:06:12.751769 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id [success]
+21:06:12.751830 [debug]: Started analyzing test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+21:06:12.751880 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.unique_stg_orders_order_id [success]
+21:06:12.751942 [debug]: Started analyzing test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+21:06:12.752733 [debug]: Finished analyzing [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id [success]
+21:06:12.752820 [info ]: Started running test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id
+21:06:12.752861 [debug]: Finished analyzing [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date [success]
+21:06:12.752915 [info ]: Started running test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date
+21:06:12.753270 [debug]: Compiled SQL for node test.jaffle_shop_1.not_null_stg_orders_amount.2546645448 at target/compiled/jaffle_shop_1/target/generic_tests/not_null_stg_orders_amount.sql
+21:06:12.754346 [debug]: Finished rendering [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_amount [success]
+21:06:12.754414 [info ]: Finished rendering [  2.68s] (6 nodes, 0 skipped, 0 errors)
+21:06:12.754588 [debug]: Started analyzing test dbt_dev_dbt_test__audit.not_null_stg_orders_amount
+21:06:12.754811 [debug]: Finished analyzing [  0.00s] test dbt_dev_dbt_test__audit.not_null_stg_orders_amount [success]
+21:06:12.754895 [info ]: Started running test dbt_dev_dbt_test__audit.not_null_stg_orders_amount
+21:06:12.755977 [debug]: Writing runtime sql for node "test.jaffle_shop_1.not_null_stg_orders_order_date.2177a3e8bb"
+21:06:12.756767 [debug]: Writing runtime sql for node "test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64"
+21:06:12.758377 [debug]: create_debug_span(...).entered() took 20.09µs
+21:06:12.759085 [debug]: Finished analyzing [  0.01s] test dbt_dev_dbt_test__audit.unique_stg_orders_order_id [success]
+21:06:12.759165 [info ]: Finished analyzing [  2.69s] (6 nodes, 0 skipped, 0 errors)
+21:06:12.759328 [info ]: Started running test dbt_dev_dbt_test__audit.unique_stg_orders_order_id
+21:06:12.759985 [debug]: create_debug_span(...).entered() took 29.27µs
+21:06:12.760863 [debug]: Writing runtime sql for node "test.jaffle_shop_1.not_null_stg_orders_amount.2546645448"
+21:06:12.763917 [debug]: Writing runtime sql for node "test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a"
+21:06:12.768142 [debug]: create_debug_span(...).entered() took 45.447µs
+21:06:12.769975 [debug]: create_debug_span(...).entered() took 44.556µs
+21:06:14.246882 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.488397855s
+21:06:14.246928 [debug]: reader.schema() took 963ns
+21:06:14.259741 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.48967702s
+21:06:14.259848 [debug]: reader.schema() took 1.017µs
+21:06:14.288944 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.528880819s
+21:06:14.288992 [debug]: reader.schema() took 780ns
+21:06:14.369664 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.601360616s
+21:06:14.369713 [debug]: reader.schema() took 694ns
+21:06:14.632737 [debug]: batch-consume loop (for res in reader) took 385.765953ms
+21:06:14.635371 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.876942889s
+21:06:14.635467 [debug]: concat_batches + normalize_result_column_names took 23.037µs
+21:06:14.635486 [debug]: record_current_span_status_from_attrs took 6.054µs
+21:06:14.635504 [debug]: Query executed on node test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.not_null_stg_orders_order_id.81cfe2fe64", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_id
+from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+where order_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+21:06:14.635582 [debug]: drop(query_span_guard) (span exit/export) took 81.829µs
+21:06:14.636542 [info ]: Finished running [  1.88s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_id [pass]
+21:06:14.636684 [info ]:     Passed test  not_null_stg_orders_order_id [4 of 6 in 1.89s]
+21:06:14.674386 [debug]: batch-consume loop (for res in reader) took 304.632151ms
+21:06:14.677109 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.908914834s
+21:06:14.677167 [debug]: concat_batches + normalize_result_column_names took 11.187µs
+21:06:14.677184 [debug]: record_current_span_status_from_attrs took 6.045µs
+21:06:14.677216 [debug]: Query executed on node test.jaffle_shop_1.not_null_stg_orders_amount.2546645448:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.not_null_stg_orders_amount.2546645448", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select amount
+from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+where amount is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+21:06:14.677287 [debug]: drop(query_span_guard) (span exit/export) took 76.755µs
+21:06:14.677945 [info ]: Finished running [  1.92s] test dbt_dev_dbt_test__audit.not_null_stg_orders_amount [pass]
+21:06:14.678096 [info ]:     Passed test  not_null_stg_orders_amount [6 of 6 in 1.93s]
+21:06:14.680694 [debug]: batch-consume loop (for res in reader) took 420.816697ms
+21:06:14.684016 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.913993253s
+21:06:14.684091 [debug]: concat_batches + normalize_result_column_names took 11.031µs
+21:06:14.684119 [debug]: record_current_span_status_from_attrs took 14.039µs
+21:06:14.684143 [debug]: Query executed on node test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.unique_stg_orders_order_id.e3b841c71a", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select order_id as unique_field
+  from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+  where order_id is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+21:06:14.684227 [debug]: drop(query_span_guard) (span exit/export) took 96.229µs
+21:06:14.684794 [info ]: Finished running [  1.93s] test dbt_dev_dbt_test__audit.unique_stg_orders_order_id [pass]
+21:06:14.684904 [info ]:     Passed test  unique_stg_orders_order_id [3 of 6 in 1.93s]
+21:06:14.839981 [debug]: batch-consume loop (for res in reader) took 550.958448ms
+21:06:14.842738 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 2.082717396s
+21:06:14.842816 [debug]: concat_batches + normalize_result_column_names took 11.146µs
+21:06:14.842841 [debug]: record_current_span_status_from_attrs took 13.841µs
+21:06:14.842863 [debug]: Query executed on node test.jaffle_shop_1.not_null_stg_orders_order_date.2177a3e8bb:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.jaffle_shop_1.not_null_stg_orders_order_date.2177a3e8bb", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_date
+from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+where order_date is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+21:06:14.842944 [debug]: drop(query_span_guard) (span exit/export) took 86.867µs
+21:06:14.843554 [info ]: Finished running [  2.09s] test dbt_dev_dbt_test__audit.not_null_stg_orders_order_date [pass]
+21:06:14.843686 [info ]:     Passed test  not_null_stg_orders_order_date [5 of 6 in 2.09s]
+21:06:14.843803 [info ]: Started running model dbt_dev.fct_daily_sales
+21:06:15.111703 [debug]: Writing runtime sql for node "model.jaffle_shop_1.fct_daily_sales"
+21:06:15.112907 [debug]: create_debug_span(...).entered() took 25.356µs
+21:06:17.924456 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 2.811425818s
+21:06:17.924515 [debug]: reader.schema() took 884ns
+21:06:18.288158 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 3.175196772s
+21:06:18.288254 [debug]: concat_batches + normalize_result_column_names took 25.204µs
+21:06:18.288283 [debug]: record_current_span_status_from_attrs took 11.083µs
+21:06:18.288310 [debug]: Query executed on node model.jaffle_shop_1.fct_daily_sales:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.jaffle_shop_1.fct_daily_sales", "profile_name": "jaffle_shop_1", "target_name": "dev"} */
+
+  
+    
+
+    create or replace table `bigquery-access-gcp`.`dbt_dev`.`fct_daily_sales`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      
+
+select
+    order_date,
+    status,
+    count(*) as order_count,
+    sum(amount) as total_amount
+from `bigquery-access-gcp`.`dbt_dev`.`stg_orders`
+group by order_date, status
+    );
+  
+21:06:18.288382 [debug]: drop(query_span_guard) (span exit/export) took 81.166µs
+21:06:18.290574 [info ]: Finished running [  3.45s] model dbt_dev.fct_daily_sales [success]
+21:06:18.290720 [info ]: Finished running [  8.19s] (6 nodes, 0 skipped, 0 errors)
+21:06:18.290799 [info ]:  Succeeded model dbt_dev.fct_daily_sales (table) [2 of 6 in 3.45s]
+21:06:18.486895 [info ]: 
+==================== Execution Summary =====================
+Finished 'build' successfully for target 'dev' [9.1s]
+Processed: 2 models | 4 tests
+Summary: 6 total | 6 success
