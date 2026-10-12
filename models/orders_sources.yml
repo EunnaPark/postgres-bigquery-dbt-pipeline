@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: postgres_cdc
+    database: bigquery-access-gcp
+    schema: datastream_raw
+    tables:
+      - name: orders
+        identifier: test_orders

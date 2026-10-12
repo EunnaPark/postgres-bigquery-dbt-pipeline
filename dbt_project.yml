@@ -1,0 +1,16 @@
+name: postgres_bigquery_dbt_pipeline
+version: "1.0.0"
+config-version: 2
+
+profile: jaffle_shop_1
+
+model-paths: ["models"]
+test-paths: ["tests"]
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  postgres_bigquery_dbt_pipeline:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
