@@ -1,0 +1,4 @@
+order_id,customer_id,order_date,status,amount,parsed_order_date,parsed_amount,rejection_reason
+910002,102,2026-10-21,pending,50.00,2026-10-21,50.0,
+910003,103,2026-10-21,cancelled,30.00,2026-10-21,30.0,
+910004,104,2026-10-21,completed,25.50,2026-10-21,25.5,

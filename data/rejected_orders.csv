@@ -1,0 +1,9 @@
+order_id,customer_id,order_date,status,amount,parsed_order_date,parsed_amount,rejection_reason
+910001,101,2026-10-21,completed,100.00,2026-10-21,100.0,Duplicate order ID in file; 
+910005,105,2026-02-30,completed,20.00,,20.0,Invalid order date; 
+,106,2026-10-21,completed,15.00,2026-10-21,15.0,Missing order ID; 
+910007,107,2026-10-21,completed,abc,2026-10-21,,Invalid amount; 
+910008,108,2026-10-21,unknown,40.00,2026-10-21,40.0,Invalid status; 
+910009,109,2026-10-21,pending,-10.00,2026-10-21,-10.0,Negative amount; 
+910010,110,2026-10-21,completed,0.00,2026-10-21,0.0,Completed order amount must be positive; 
+910001,101,2026-10-21,completed,120.00,2026-10-21,120.0,Duplicate order ID in file; 
