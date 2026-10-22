@@ -139,7 +139,7 @@ for order in rows_to_load:
 
 
 
-    from getpass import getpass
+from getpass import getpass
 import psycopg
 
 upsert_sql = """
