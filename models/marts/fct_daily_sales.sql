@@ -2,8 +2,8 @@
 
 select
     order_date,
-    status,
     count(*) as order_count,
-    sum(amount) as total_amount
+    sum(amount) as completed_revenue
 from {{ ref('stg_orders') }}
-group by order_date, status
+where status = 'completed'
+group by order_date

@@ -8,9 +8,22 @@ models:
         data_tests:
           - unique
           - not_null
+
       - name: order_date
         data_tests:
           - not_null
+
       - name: amount
         data_tests:
           - not_null
+
+      - name: status
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - pending
+                  - completed
+                  - cancelled
+                  - refunded
