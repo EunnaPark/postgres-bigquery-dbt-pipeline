@@ -8,6 +8,20 @@ This project uses small synthetic datasets and manual execution.
 It does not claim production readiness, large-scale performance,
 or automated scheduling.
 
+## What this demonstrates
+
+- **Data validation:** Python separates invalid CSV rows with reasons and upserts accepted orders without duplicate records on replay.
+- **Business rules and documentation:** a [column-level data dictionary](docs/data_dictionary.md) defines order fields, model grain and completed-revenue logic alongside [dbt schema descriptions](models/orders_schema.yml).
+- **Error detection and correction:** staging tests detected an injected zero-value completed order and all seven passed after correction; [validation notes](docs/validation.md) distinguish observed results from preserved artifacts.
+
+**Observed sample results:** 11 input rows → 3 accepted / 8 rejected; replay kept
+3 orders; source and mart both returned 1 completed order and 25.50.
+This is a small synthetic-data demonstration, with manual CDC and aggregate checks.
+
+[Data dictionary](docs/data_dictionary.md) · [Validation record](docs/validation.md) ·
+[Recovery test results](docs/execution/recovery/run_results.json) ·
+[Execution guide](#1-start-the-existing-services)
+
 ## Project goals
 
 - Clean and validate order CSV data with Python and pandas.
@@ -44,7 +58,7 @@ flowchart LR
 
 | Component | Configuration |
 | --- | --- |
-| Google Cloud project | `bigquery-access-gcp` |
+| Google Cloud project | `YOUR_PROJECT_ID` |
 | Cloud SQL instance | `postgres-db` |
 | PostgreSQL version | 14 |
 | PostgreSQL database | `portfolio` |
@@ -62,12 +76,47 @@ They are not a complete infrastructure provisioning guide.
 For another environment, update the project, connection name,
 database settings, dbt source configuration, and dbt profile.
 
+### Portable configuration
+
+Copy the non-secret example and edit it for your environment:
+
+```bash
+cp .env.example .env
+nano .env
+set -a
+source .env
+set +a
+```
+
+Run the export commands in each terminal that uses the proxy or dbt.
+Do not leave `your-gcp-project-id` unchanged. SQL snippets below use
+`YOUR_PROJECT_ID`; replace it manually in the BigQuery editor (it does not
+substitute shell variables). The examples retain the documented lab dataset names;
+if those change, update the SQL snippets too.
+
+The source project uses `GCP_PROJECT` when set, otherwise the project in your
+active dbt target. The source dataset uses `RAW_DATASET`, defaulting to
+`datastream_raw`. Existing matching dbt profiles can continue to be used.
+
+For a new profile, copy [profiles.yml.example](profiles.yml.example) to a private
+dbt profiles directory and supply `GCP_PROJECT`, `DBT_DATASET` and `BQ_LOCATION`.
+The profile name matches `dbt_project.yml`. Authenticate with your own Google
+credentials; no credential file is included here. Both `.env` and `profiles.yml`
+are ignored by Git. The Python scripts still use the lab's local proxy endpoint
+and prompt for the PostgreSQL password.
+
+Historical files under `docs/execution/` may contain the original project ID and
+local paths. They are preserved as execution evidence, not portable configuration;
+this cleanup does not remove those identifiers from Git history.
+
 ## Repository files
 
 ```text
 check_connection.py
 inspect_orders.py
 dbt_project.yml
+.env.example
+profiles.yml.example
 data/
     orders_practice.csv
     rejected_orders.csv
@@ -82,6 +131,7 @@ models/
 tests/
     assert_valid_order_amount.sql
 docs/
+    data_dictionary.md
     validation.md
     execution/
         recovery/
@@ -93,6 +143,14 @@ docs/
 
 The archived README describes an earlier lab and is retained for reference.
 Use this README for the current order pipeline.
+
+## Data dictionary
+
+[Read the data dictionary](docs/data_dictionary.md) for source types, field meanings,
+model grain, lineage, validation coverage and known gaps. The executable project's
+column descriptions are maintained in [models/orders_schema.yml](models/orders_schema.yml)
+for all six staging fields and all three mart fields. Descriptions document rules;
+they do not imply a test exists. The existing seven staging tests are unchanged.
 
 ## Business rules
 
@@ -147,7 +205,7 @@ Do not put passwords in source code or commit credentials.
 In the first Cloud Shell terminal:
 
 ```bash
-cloud-sql-proxy bigquery-access-gcp:us-west2:postgres-db --port 9473
+cloud-sql-proxy "$CLOUD_SQL_CONNECTION_NAME" --port 9473
 ```
 
 Keep this terminal running.
@@ -261,7 +319,7 @@ SELECT
     order_date,
     status,
     amount
-FROM `bigquery-access-gcp.datastream_raw.test_orders`
+FROM `YOUR_PROJECT_ID.datastream_raw.test_orders`
 WHERE order_id IN (910002, 910003, 910004)
 ORDER BY order_id;
 ```
@@ -284,7 +342,7 @@ To request the freshest available result, run both statements together:
 SET @@max_staleness_override = INTERVAL 0 SECOND;
 
 SELECT order_id, status, amount
-FROM `bigquery-access-gcp.datastream_raw.test_orders`
+FROM `YOUR_PROJECT_ID.datastream_raw.test_orders`
 WHERE order_id = 910004;
 ```
 
@@ -337,7 +395,7 @@ Query the mart:
 
 ```sql
 SELECT order_date, order_count, completed_revenue
-FROM `bigquery-access-gcp.dbt_dev.fct_daily_sales`
+FROM `YOUR_PROJECT_ID.dbt_dev.fct_daily_sales`
 WHERE order_date = DATE '2026-10-21';
 ```
 
@@ -348,7 +406,7 @@ SELECT
     order_date,
     COUNT(*) AS order_count,
     SUM(amount) AS completed_revenue
-FROM `bigquery-access-gcp.datastream_raw.test_orders`
+FROM `YOUR_PROJECT_ID.datastream_raw.test_orders`
 WHERE order_date = DATE '2026-10-21'
   AND LOWER(TRIM(status)) = 'completed'
 GROUP BY order_date;

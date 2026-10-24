@@ -1,0 +1,10 @@
+jaffle_shop_1:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: "{{ env_var('GCP_PROJECT') }}"
+      dataset: "{{ env_var('DBT_DATASET', 'dbt_dev') }}"
+      location: "{{ env_var('BQ_LOCATION', 'US') }}"
+      threads: 2
