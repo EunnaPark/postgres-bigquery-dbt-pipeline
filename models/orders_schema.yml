@@ -2,22 +2,29 @@ version: 2
 
 models:
   - name: stg_orders
-    description: "Current orders replicated from PostgreSQL through Datastream."
+    description: >-
+      Current order state replicated from PostgreSQL through Datastream.
+      Grain: one row per order_id. All statuses are retained; status is trimmed
+      and lowercased. This view is not an order-event history.
     columns:
       - name: order_id
+        description: "Source order identifier (PostgreSQL bigint); primary key and upsert key. Python requires a positive integer; dbt checks uniqueness and non-nullness."
         data_tests:
           - unique
           - not_null
 
       - name: order_date
+        description: "Business order date (DATE), supplied as YYYY-MM-DD. Used to group completed revenue; not the ingestion date. No timezone conversion is applied."
         data_tests:
           - not_null
 
       - name: amount
+        description: "Order amount from PostgreSQL numeric(10,2). Must be nonnegative and strictly positive for completed orders. Synthetic data assumes one unspecified currency; not a net-revenue measure. Checked by not_null and assert_valid_order_amount."
         data_tests:
           - not_null
 
       - name: status
+        description: "Current normalized order status. Allowed values are pending, completed, cancelled and refunded. Only completed contributes to completed_revenue."
         data_tests:
           - not_null
           - accepted_values:
@@ -27,3 +34,21 @@ models:
                   - completed
                   - cancelled
                   - refunded
+      - name: customer_id
+        description: "Synthetic customer identifier (PostgreSQL bigint). Required and positive in Python validation; no customer dimension or dbt relationships test is implemented."
+      - name: updated_at
+        description: "Source modification timestamp (PostgreSQL timestamptz). Defaults to CURRENT_TIMESTAMP on insert and is explicitly set by the loader on upsert updates, including unchanged values. Not a BigQuery arrival time or CDC latency measure."
+
+  - name: fct_daily_sales
+    description: >-
+      Daily aggregation of current completed orders from stg_orders.
+      Grain: one row per order_date with at least one completed order.
+      Rebuilt as a table by dbt; dates without completed orders are absent.
+      Historical totals can change when order status, amount or existence changes.
+    columns:
+      - name: order_date
+        description: "Business order date and grouping key, inherited from stg_orders.order_date."
+      - name: order_count
+        description: "COUNT(*) of orders currently marked completed on this date; excludes pending, cancelled and refunded orders."
+      - name: completed_revenue
+        description: "SUM(amount) of orders currently marked completed on this date, in the same assumed currency as amount. No separate tax, refund or currency-conversion calculation. Validated by manual source-to-mart comparison, not an automated mart test."

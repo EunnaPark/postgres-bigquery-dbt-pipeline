@@ -2,8 +2,10 @@ version: 2
 
 sources:
   - name: postgres_cdc
-    database: bigquery-access-gcp
-    schema: datastream_raw
+    description: "Current PostgreSQL order records replicated to BigQuery by Datastream in merge mode. Delivery and application are asynchronous."
+    database: "{{ env_var('GCP_PROJECT', target.project) }}"
+    schema: "{{ env_var('RAW_DATASET', 'datastream_raw') }}"
     tables:
       - name: orders
         identifier: test_orders
+        description: "Replica of PostgreSQL test.orders; the upstream order_id primary key identifies changes. See orders_schema.yml for downstream field definitions."
