@@ -120,6 +120,7 @@ inspect_orders.py
 dbt_project.yml
 .env.example
 profiles.yml.example
+requirements.txt
 data/
     orders_practice.csv
     rejected_orders.csv
@@ -150,7 +151,7 @@ Use this README for the current order pipeline.
 ## Continuous integration
 
 [`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs on every pull request
-and on pushes to `main`. It checks Python syntax, copies `profiles.yml.example`
+and on pushes to `main`. It installs [`requirements.txt`](requirements.txt), checks Python syntax, copies `profiles.yml.example`
 into place with a placeholder project, and runs `dbt parse` and `dbt ls`.
 
 These steps catch broken YAML, Jinja, `ref()`/`source()` references and test
