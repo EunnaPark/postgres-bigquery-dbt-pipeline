@@ -43,6 +43,7 @@ flowchart LR
     DS --> RAW["BigQuery: datastream_raw.test_orders"]
     RAW --> STG["dbt: stg_orders view"]
     STG --> MART["dbt: fct_daily_sales table"]
+    STG --> DIM["dbt: dim_customers table"]
 ```
 
 ### Service responsibilities
@@ -128,8 +129,10 @@ models/
         stg_orders.sql
     marts/
         fct_daily_sales.sql
+        dim_customers.sql
 tests/
     assert_valid_order_amount.sql
+    assert_customer_revenue_reconciles.sql
 docs/
     data_dictionary.md
     validation.md
@@ -150,7 +153,8 @@ Use this README for the current order pipeline.
 model grain, lineage, validation coverage and known gaps. The executable project's
 column descriptions are maintained in [models/orders_schema.yml](models/orders_schema.yml)
 for all six staging fields and all three mart fields. Descriptions document rules;
-they do not imply a test exists. The existing seven staging tests are unchanged.
+they do not imply a test exists. The original seven staging tests are unchanged;
+`dim_customers` adds new customer tests (see step 9).
 
 ## Business rules
 
@@ -361,7 +365,7 @@ The existing Cloud Shell lab has dbt installed in `~/venvs/dbt`.
 
 ```bash
 source ~/venvs/dbt/bin/activate
-dbt run --select +fct_daily_sales
+dbt run --select +fct_daily_sales +dim_customers
 ```
 
 The `+` includes upstream dependencies such as `stg_orders`.
@@ -386,7 +390,15 @@ installation, credentials, project, dataset, and location.
 - Groups by `order_date`.
 - Produces `order_count` and `completed_revenue`.
 
-Because the mart is a table, source changes do not automatically rebuild it.
+**`dim_customers`**
+
+- Materialized as a table.
+- Built from `stg_orders`, because the source has no separate customer table.
+- Groups by `customer_id` across all statuses.
+- Produces `first_order_date`, `last_order_date`, `order_count`,
+  `completed_order_count`, and `completed_revenue` (0 when none).
+
+Because the marts are tables, source changes do not automatically rebuild them.
 Run dbt again when the mart needs to reflect new source data.
 
 ## 8. Validate completed revenue
@@ -454,6 +466,24 @@ where amount < 0
 
 Zero returned rows means the test passes.
 One or more returned rows means it fails.
+
+### Customer dimension tests
+
+```bash
+dbt test --select dim_customers
+```
+
+Adding `dim_customers` added these tests. They have not yet been run against BigQuery:
+
+- `stg_orders.customer_id`: not_null, and relationships to `dim_customers.customer_id`.
+- `dim_customers`: unique and not_null `customer_id`, plus not_null on every measure.
+- `assert_customer_revenue_reconciles`: total `completed_revenue` must match between
+  `dim_customers` and `fct_daily_sales`.
+
+Selecting `dim_customers` also runs the relationships test and the reconciliation test,
+because both reference it. The seven tests listed above are the original staging set and
+were what the recorded runs below executed; `dbt test --select stg_orders` now also
+runs the two new `customer_id` tests.
 
 ## 10. Verify error detection and recovery
 
