@@ -12,13 +12,14 @@ business meaning and validation coverage. Update both when a field or rule chang
 | BigQuery `datastream_raw.test_orders` | Replicated current order state | Asynchronous Datastream delivery and application |
 | `stg_orders` | One current record per `order_id` | View; normalize status and retain every status |
 | `fct_daily_sales` | One row per date with completed orders | Table rebuilt by dbt; no row for dates with no completed orders |
+| `dim_customers` | One row per `customer_id` with a current order | Table rebuilt by dbt from `stg_orders`; no separate customer source |
 
 ## Order fields
 
 | Field | Source type | Meaning | Validation in this project |
 | --- | --- | --- | --- |
 | `order_id` | `bigint NOT NULL`, primary key | Order identity and upsert key | Python: positive integer, missing and duplicate text IDs; dbt: unique and not_null |
-| `customer_id` | `bigint NOT NULL` | Synthetic customer identity | Python: required positive integer; no customer dimension or relationship test |
+| `customer_id` | `bigint NOT NULL` | Synthetic customer identity | Python: required positive integer; dbt: not_null and relationships to `dim_customers` |
 | `order_date` | `date NOT NULL` | Business date, not load date | Python: parse YYYY-MM-DD; dbt: not_null |
 | `status` | `text NOT NULL` | Current lifecycle state, trimmed and lowercased | Python and dbt: pending/completed/cancelled/refunded; dbt also checks not_null |
 | `amount` | `numeric(10,2) NOT NULL` | Order amount; synthetic single, unspecified currency | Python: numeric, nonnegative, positive if completed; dbt: not_null plus custom amount test |
@@ -34,6 +35,16 @@ The loader can change it even when business values remain unchanged.
 | `order_date` | Grouping date from staging | Only dates with completed orders appear |
 | `order_count` | COUNT(*) WHERE status = 'completed' | Current completed-order count, not all orders |
 | `completed_revenue` | SUM(amount) WHERE status = 'completed' | Excludes pending, cancelled and refunded orders; not accounting net revenue |
+
+## Customer measures
+
+| Field | Definition | Interpretation |
+| --- | --- | --- |
+| `customer_id` | Grouping key from staging | Unique and not null in `dim_customers` |
+| `first_order_date` / `last_order_date` | MIN / MAX(order_date) over all statuses | Based on current orders only, not historical activity |
+| `order_count` | COUNT(*) over all statuses | Includes pending, cancelled and refunded orders |
+| `completed_order_count` | COUNTIF(status = 'completed') | Can be 0 |
+| `completed_revenue` | SUM(amount) WHERE status = 'completed', else 0 | Same definition as the daily mart; `assert_customer_revenue_reconciles` checks the totals match |
 
 The current-state model means a later refund, cancellation, correction or deletion
 can change a prior date's total on the next dbt run. There is no event history,
