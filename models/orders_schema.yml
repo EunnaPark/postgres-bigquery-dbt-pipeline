@@ -35,7 +35,13 @@ models:
                   - cancelled
                   - refunded
       - name: customer_id
-        description: "Synthetic customer identifier (PostgreSQL bigint). Required and positive in Python validation; no customer dimension or dbt relationships test is implemented."
+        description: "Synthetic customer identifier (PostgreSQL bigint). Required and positive in Python validation. dbt checks non-nullness and that every value exists in dim_customers."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customers')
+                field: customer_id
       - name: updated_at
         description: "Source modification timestamp (PostgreSQL timestamptz). Defaults to CURRENT_TIMESTAMP on insert and is explicitly set by the loader on upsert updates, including unchanged values. Not a BigQuery arrival time or CDC latency measure."
 
@@ -51,4 +57,37 @@ models:
       - name: order_count
         description: "COUNT(*) of orders currently marked completed on this date; excludes pending, cancelled and refunded orders."
       - name: completed_revenue
-        description: "SUM(amount) of orders currently marked completed on this date, in the same assumed currency as amount. No separate tax, refund or currency-conversion calculation. Validated by manual source-to-mart comparison, not an automated mart test."
+        description: "SUM(amount) of orders currently marked completed on this date, in the same assumed currency as amount. No separate tax, refund or currency-conversion calculation. Validated by manual source-to-mart comparison; assert_customer_revenue_reconciles checks that its total matches dim_customers."
+
+  - name: dim_customers
+    description: >-
+      Customer dimension derived from current orders in stg_orders, because the
+      source has no separate customer table. Grain: one row per customer_id that
+      has at least one current order of any status. Rebuilt as a table by dbt;
+      a customer disappears if all of their orders are deleted at the source.
+    columns:
+      - name: customer_id
+        description: "Customer identifier and primary key, inherited from stg_orders.customer_id."
+        data_tests:
+          - unique
+          - not_null
+      - name: first_order_date
+        description: "Earliest order_date across the customer's current orders of any status."
+        data_tests:
+          - not_null
+      - name: last_order_date
+        description: "Latest order_date across the customer's current orders of any status."
+        data_tests:
+          - not_null
+      - name: order_count
+        description: "COUNT(*) of the customer's current orders across all statuses; always at least 1."
+        data_tests:
+          - not_null
+      - name: completed_order_count
+        description: "Number of the customer's orders currently marked completed; can be 0."
+        data_tests:
+          - not_null
+      - name: completed_revenue
+        description: "SUM(amount) of the customer's completed orders, 0 when none. Same definition as fct_daily_sales.completed_revenue; assert_customer_revenue_reconciles checks that both marts have the same total. Not net revenue."
+        data_tests:
+          - not_null
