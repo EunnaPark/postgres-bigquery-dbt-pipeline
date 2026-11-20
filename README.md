@@ -112,11 +112,15 @@ this cleanup does not remove those identifiers from Git history.
 ## Repository files
 
 ```text
+.github/
+    workflows/
+        ci.yml
 check_connection.py
 inspect_orders.py
 dbt_project.yml
 .env.example
 profiles.yml.example
+requirements.txt
 data/
     orders_practice.csv
     rejected_orders.csv
@@ -143,6 +147,16 @@ docs/
 
 The archived README describes an earlier lab and is retained for reference.
 Use this README for the current order pipeline.
+
+## Continuous integration
+
+[`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs on every pull request
+and on pushes to `main`. It installs [`requirements.txt`](requirements.txt), checks Python syntax, copies `profiles.yml.example`
+into place with a placeholder project, and runs `dbt parse` and `dbt ls`.
+
+These steps catch broken YAML, Jinja, `ref()`/`source()` references and test
+definitions without BigQuery credentials. CI does **not** build models or run
+data tests; those still run in Cloud Shell against BigQuery.
 
 ## Data dictionary
 
