@@ -487,7 +487,7 @@ One or more returned rows means it fails.
 dbt test --select dim_customers
 ```
 
-Adding `dim_customers` added these tests. They have not yet been run against BigQuery:
+Adding `dim_customers` added these tests:
 
 - `stg_orders.customer_id`: not_null, and relationships to `dim_customers.customer_id`.
 - `dim_customers`: unique and not_null `customer_id`, plus not_null on every measure.
@@ -498,6 +498,16 @@ Selecting `dim_customers` also runs the relationships test and the reconciliatio
 because both reference it. The seven tests listed above are the original staging set and
 were what the recorded runs below executed; `dbt test --select stg_orders` now also
 runs the two new `customer_id` tests.
+
+On 2026-11-20 in Cloud Shell (dbt 2.0.8, target `dev`), the build below
+processed 3 models and 17 tests: 20 of 20 nodes succeeded in 16.0s.
+
+```bash
+dbt build --select +dim_customers +fct_daily_sales
+```
+
+This run was not captured as a `run_results.json` artifact; the result above is
+the console summary.
 
 ## 10. Verify error detection and recovery
 
