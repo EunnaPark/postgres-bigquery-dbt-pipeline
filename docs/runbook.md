@@ -19,7 +19,7 @@ dbt debug
 
 | Component | Configuration |
 | --- | --- |
-| Google Cloud project | `YOUR_PROJECT_ID` |
+| Google Cloud project | `{PROJECT_ID}` |
 | Cloud SQL instance | `postgres-db` |
 | PostgreSQL version | 14 |
 | PostgreSQL database | `portfolio` |
@@ -57,7 +57,7 @@ set +a
 
 Run the export commands in each terminal that uses the proxy or dbt.
 Do not leave `your-gcp-project-id` unchanged. SQL snippets below use
-`YOUR_PROJECT_ID`; replace it manually in the BigQuery editor (it does not
+`{PROJECT_ID}`; replace it manually in the BigQuery editor (it does not
 substitute shell variables). The examples retain the documented lab dataset names;
 if those change, update the SQL snippets too.
 
@@ -72,9 +72,8 @@ credentials; no credential file is included here. Both `.env` and `profiles.yml`
 are ignored by Git. The Python scripts still use the lab's local proxy endpoint
 and prompt for the PostgreSQL password.
 
-Historical files under [`docs/execution/`](execution/) may contain the original project ID and
-local paths. They are preserved as execution evidence, not portable configuration;
-this cleanup does not remove those identifiers from Git history.
+The recovery artifacts under [`docs/execution/recovery/`](execution/recovery/) contain the
+original project ID. They are kept as execution evidence, not as portable configuration.
 
 ## 1. Start the existing services
 
@@ -222,7 +221,7 @@ SELECT
     order_date,
     status,
     amount
-FROM `YOUR_PROJECT_ID.datastream_raw.test_orders`
+FROM `{PROJECT_ID}.datastream_raw.test_orders`
 WHERE order_id IN (910002, 910003, 910004)
 ORDER BY order_id;
 ```
@@ -245,7 +244,7 @@ To request the freshest available result, run both statements together:
 SET @@max_staleness_override = INTERVAL 0 SECOND;
 
 SELECT order_id, status, amount
-FROM `YOUR_PROJECT_ID.datastream_raw.test_orders`
+FROM `{PROJECT_ID}.datastream_raw.test_orders`
 WHERE order_id = 910004;
 ```
 
@@ -306,7 +305,7 @@ Query the mart:
 
 ```sql
 SELECT order_date, order_count, completed_revenue
-FROM `YOUR_PROJECT_ID.dbt_dev.fct_daily_sales`
+FROM `{PROJECT_ID}.dbt_dev.fct_daily_sales`
 WHERE order_date = DATE '2026-10-21';
 ```
 
@@ -317,7 +316,7 @@ SELECT
     order_date,
     COUNT(*) AS order_count,
     SUM(amount) AS completed_revenue
-FROM `YOUR_PROJECT_ID.datastream_raw.test_orders`
+FROM `{PROJECT_ID}.datastream_raw.test_orders`
 WHERE order_date = DATE '2026-10-21'
   AND LOWER(TRIM(status)) = 'completed'
 GROUP BY order_date;
@@ -465,3 +464,10 @@ Storage and other applicable charges may remain after stopping compute.
 When pausing CDC, consider replication-slot health, retained WAL,
 and source storage capacity. Do not assume a paused stream can resume
 indefinitely without checking source-log availability.
+
+## References
+
+- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests)
+- [BigQuery system variables and freshness overrides](https://docs.cloud.google.com/bigquery/docs/reference/system-variables)
+- [BigQuery CDC](https://docs.cloud.google.com/bigquery/docs/change-data-capture)
+- [Datastream stream lifecycle operations](https://docs.cloud.google.com/datastream/docs/run-a-stream)

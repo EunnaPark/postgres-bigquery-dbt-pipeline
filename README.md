@@ -76,17 +76,6 @@ Field definitions, types and validation coverage are in the
   This catches broken YAML, Jinja and `ref()`/`source()` references without storing
   GCP credentials in GitHub. Data tests run against BigQuery in Cloud Shell.
 
-## Business rules
-
-| Field or metric | Rule |
-| --- | --- |
-| Order ID | Required, positive integer, unique |
-| Customer ID | Required, positive integer |
-| Order date | Valid `YYYY-MM-DD` date |
-| Status | `pending`, `completed`, `cancelled` or `refunded` |
-| Amount | Numeric and nonnegative; greater than zero when completed |
-| Completed revenue | Sum of amounts for orders currently marked `completed` |
-
 ## Validation results
 
 | Check | Observed result |
@@ -127,8 +116,7 @@ docs/
     runbook.md                 Step-by-step run and verification guide
     data_dictionary.md         Field definitions, grain and validation coverage
     validation.md              Observed validation sequence
-    execution/                 Preserved dbt run artifacts
-    archive/                   README from the earlier lab
+    execution/recovery/        dbt artifacts from the error-recovery run
 ```
 
 ## How to run
@@ -156,7 +144,6 @@ dbt build                          # build all models and run all tests in BigQu
 - PostgreSQL connection settings are hard-coded in the Python scripts.
 - A separate `run_results.json` from the failed test run was not preserved. The
   2026-11-20 build result was taken from the console output.
-- Earlier files under `docs/execution/` come from the previous lab, not this extension.
 - Not done: BigQuery partitioning benchmarks, automated deployment, scheduling and a
   controlled Datastream pause/resume test.
 
@@ -170,10 +157,3 @@ These are planned and not yet implemented:
 3. Make ingestion non-interactive and add an automated source-to-BigQuery
    reconciliation check.
 4. Orchestrate ingestion, CDC freshness checks and dbt with a scheduler such as Airflow.
-
-## References
-
-- [dbt data tests](https://docs.getdbt.com/docs/build/data-tests)
-- [BigQuery system variables and freshness overrides](https://docs.cloud.google.com/bigquery/docs/reference/system-variables)
-- [BigQuery CDC](https://docs.cloud.google.com/bigquery/docs/change-data-capture)
-- [Datastream stream lifecycle operations](https://docs.cloud.google.com/datastream/docs/run-a-stream)
