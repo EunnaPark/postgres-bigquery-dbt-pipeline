@@ -4,3 +4,5 @@ dbt_packages/
 .venv/
 profiles.yml
 .env
+__pycache__/
+.ci/

@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    env:
+      # Placeholder values: dbt parse and ls read the profile but never connect to BigQuery.
+      GCP_PROJECT: ci-placeholder-project
+      DBT_PROFILES_DIR: ${{ github.workspace }}/.ci
+      DBT_SEND_ANONYMOUS_USAGE_STATS: "false"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Check Python syntax
+        run: python -m py_compile check_connection.py inspect_orders.py
+
+      - name: Use the example dbt profile
+        run: |
+          mkdir -p .ci
+          cp profiles.yml.example .ci/profiles.yml
+
+      - name: Parse dbt project
+        run: dbt parse
+
+      - name: List dbt models and tests
+        run: dbt ls --resource-type model test
