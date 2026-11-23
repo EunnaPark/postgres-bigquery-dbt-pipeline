@@ -1,6 +1,6 @@
 import pandas as pd
 
-from order_validation import normalize_status
+from order_validation import is_valid_status, normalize_status
 
 orders = pd.read_csv(
     "data/orders_practice.csv",
@@ -52,9 +52,7 @@ orders.loc[invalid_amount, "rejection_reason"] += "Invalid amount; "
 
 
 
-allowed_statuses = ["pending", "completed", "cancelled", "refunded"]
-
-invalid_status = ~orders["status"].isin(allowed_statuses)
+invalid_status = ~is_valid_status(orders["status"])
 negative_amount = orders["parsed_amount"] < 0
 zero_completed_amount = (
     orders["status"].eq("completed")
