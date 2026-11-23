@@ -1,5 +1,7 @@
 import pandas as pd
 
+from order_validation import normalize_status
+
 orders = pd.read_csv(
     "data/orders_practice.csv",
     dtype=str,
@@ -15,7 +17,7 @@ print("\nRow count:", len(orders))
 print("\nStatus before cleaning:")
 print(orders["status"].map(repr))
 
-orders["status"] = orders["status"].str.strip().str.lower()
+orders["status"] = normalize_status(orders["status"])
 
 print("\nStatus after cleaning:")
 print(orders["status"].map(repr))
