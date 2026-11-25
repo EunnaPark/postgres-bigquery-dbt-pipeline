@@ -1,6 +1,6 @@
 import pandas as pd
 
-from order_validation import normalize_status, is_valid_status
+from order_validation import normalize_status, is_valid_status,is_negative_amount, is_zero_completed_amount
 
 
 def test_trims_and_lowercases_status():
@@ -44,3 +44,15 @@ def test_invalid_status():
 def test_empty_status():
     status = pd.Series([""])
     assert is_valid_status(status).tolist() == [False]
+
+
+def test_negative_amount():
+    amount = pd.Series([-1.0, 0.0, 5.0, float("nan")])
+    assert is_negative_amount(amount).tolist() == [True, False, False, False]
+
+
+def test_is_zero_completed_amount():
+    status = pd.Series(["completed", "pending", "completed"])
+    amount = pd.Series([0.0,          0.0,       5.0])
+    assert is_zero_completed_amount(status, amount).tolist() == [True, False, False]
+    
